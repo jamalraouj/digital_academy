@@ -9,11 +9,10 @@
 
 <html>
 <body>
-<form action="/login" method="post">
+<form action="<%=request. getContextPath()%>/login" method="post">
 
-  Password:<input type="password" name="userPass"/><br/><br/>
   Email Id:<input type="text" name="userEmail"/><br/>
-
+  Password:<input type="password" name="userPass"/><br/><br/>
   <br/><br/>
   <input type="submit" value="login"/>
 
