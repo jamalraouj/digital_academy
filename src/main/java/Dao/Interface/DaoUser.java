@@ -2,13 +2,13 @@ package Dao.Interface;
 
 import Entity.User;
 
-public interface DaoUser {
+public interface DaoUser<T>  {
 
-    boolean save(User user);
+    boolean save(T o);
 
-    void activeUser(long id);
+    boolean activeUser(T o);
 
-    void disabledUser(long id);
+    boolean disabledUser(T o);
 
     boolean checkUsername(String username);
 
@@ -17,7 +17,8 @@ public interface DaoUser {
 
     boolean checkPassword(String password);
 
-    boolean checkUsernameAndPassword(User user);
+    boolean checkUsernameAndPassword(T o);
 
     User login(String email , String password);
+
 }

@@ -4,7 +4,7 @@ import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
-public class DaoUserImp implements Dao.Interface.DaoUser {
+public class DaoUserImp implements Dao.Interface.DaoUser<User> {
 
     @Override
     public boolean save(User user) {
@@ -12,13 +12,13 @@ public class DaoUserImp implements Dao.Interface.DaoUser {
     }
 
     @Override
-    public void activeUser(long id) {
-
+    public boolean activeUser(User user) {
+return true;
     }
 
     @Override
-    public void disabledUser(long id) {
-
+    public boolean disabledUser(User user) {
+        return false;
     }
 
     @Override

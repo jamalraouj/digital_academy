@@ -1,6 +1,7 @@
 package Dao.Implementation;
 
 import Dao.Interface.IDao;
+import Util.BDUtil;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -34,5 +35,7 @@ public class DaoImplementation<T> implements IDao<T> {
     public boolean update(T o) {
         return false;
     }
+
+
 
 }

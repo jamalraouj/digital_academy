@@ -7,6 +7,7 @@ import java.util.List;
         List<T> findAll();
         boolean insert(T o);
         boolean update(T o);
+
     }
 
 
