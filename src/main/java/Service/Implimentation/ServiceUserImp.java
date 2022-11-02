@@ -5,12 +5,12 @@ import Dao.Interface.DaoUser;
 import Entity.User;
 import Service.Interface.UserService;
 
-public class UserServiceImp implements UserService {
+public class ServiceUserImp implements UserService {
     DaoUser daoUserImp = new DaoUserImp();
 
     @Override
     public User doLogin(String email, String password) {
 
-        return null;
+        return daoUserImp.login(email, password);
     }
 }

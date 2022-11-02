@@ -1,4 +1,4 @@
-package com.example.digital_academy;
+package Servlete;
 
 import Entity.User;
 import Service.Implimentation.ServiceUserImp;
@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         HttpSession httpSession = request.getSession();
         PrintWriter out = response.getWriter();
         if(httpSession.getAttribute("loggedUser") != null){
-            
+
         }
 //        System.out.println(httpSession.getAttribute("loggedUser").toString());
 
