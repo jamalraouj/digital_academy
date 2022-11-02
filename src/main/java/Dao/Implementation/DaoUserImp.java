@@ -4,7 +4,7 @@ import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
-public class ImpDaoUser implements Dao.Interface.DaoUser {
+public class DaoUserImp implements Dao.Interface.DaoUser {
 
     @Override
     public boolean save(User user) {

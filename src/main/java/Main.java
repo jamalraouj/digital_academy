@@ -1,11 +1,7 @@
-import Dao.Implementation.ImpDaoUser;
-import Dao.Interface.DaoUser;
+import Dao.Implementation.DaoUserImp;
 import Entity.Participant;
 import Entity.User;
 import Util.BDUtil;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,7 +29,7 @@ public class Main {
         BDUtil.openDB();
         BDUtil.getEntityManager().createQuery("select user from User user",User.class).getResultList().stream().map(u->u.getName()).forEach(System.out::println);
         // BDUtil.closeDB();
-        ImpDaoUser impDaoUser = new ImpDaoUser();
+        DaoUserImp impDaoUser = new DaoUserImp();
         User user = impDaoUser.login("abdesslam@gmail.com","1234");
         System.out.println(user.toString());
 
