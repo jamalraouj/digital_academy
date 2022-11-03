@@ -2,6 +2,7 @@ package Entity;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,8 +14,8 @@ public class Activity {
     private String dess;
     @Enumerated(EnumType.STRING)
     private Type type;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     @Enumerated(EnumType.STRING)
     private Status status;
     @ManyToOne
@@ -52,19 +53,19 @@ public class Activity {
         this.type = type;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -78,7 +79,7 @@ public class Activity {
     public Activity() {
 
     }
-    public Activity(int id,String title, String dess, Type type, Date startDate, Date endDate, Status status, Responsable responsable) {
+    public Activity(int id,String title, String dess, Type type, LocalDate startDate, LocalDate endDate, Status status, Responsable responsable) {
         this.id=id;
         this.title = title;
         this.dess = dess;
@@ -87,5 +88,19 @@ public class Activity {
         this.endDate = endDate;
         this.status = status;
         this.responsable = responsable;
+    }
+
+    @Override
+    public String toString() {
+        return "Activity{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", dess='" + dess + '\'' +
+                ", type=" + type +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", status=" + status +
+                ", responsable=" + responsable +
+                '}';
     }
 }
