@@ -13,27 +13,29 @@ import java.util.List;
 public class DaoParticipantImp implements IDao<Participant> {
 
     @Override
-    public boolean delete(Participant o) {
-        return false;
+    public Participant findById(long id) {
+        Participant p=new Participant();
+        p=BDUtil.getEntityManager().find(Participant.class,id);
+        return p;
     }
 
     @Override
     public List<Participant> findAll() {
-        List<Participant> listResp =new ArrayList<>();
+        List<Participant> listPart =new ArrayList<>();
         try{
             BDUtil.openDB();
             String sql = "select part from Participant  part";
             Query query = BDUtil.getEntityManager().createQuery(sql, User.class);
-            listResp=query.getResultList();
+            listPart=query.getResultList();
         }
         catch(Exception e){
             e.getMessage();
         }
-        return  listResp;
+        return  listPart;
     }
 
     @Override
-    public boolean insert(Participant o) {
+    public void insert(Participant o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
@@ -41,12 +43,19 @@ public class DaoParticipantImp implements IDao<Participant> {
         catch(Exception e){
             e.getMessage();
         }
-        return true;
     }
 
     @Override
     public boolean update(Participant o) {
-        return false;
+        BDUtil.openDB();
+        Participant p=new Participant();
+        p=BDUtil.getEntityManager().find(Participant.class,o.getId());
+        p.setName(o.getName());
+        p.setStatus(o.getStatus());
+        p.setPhone(o.getPhone());
+        p.setRole(o.getRole());
+        BDUtil.getEntityManager().merge(p);
+        return true;
     }
 
 

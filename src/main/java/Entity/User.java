@@ -23,6 +23,9 @@ public class User{
     @Enumerated(EnumType.STRING)
     private Role role;
 
+
+
+
     public User() {
 
     }
@@ -77,6 +80,10 @@ public class User{
 
     public Role getRole() {
         return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public User(long id, String name, String phone, String email, String password, Boolean status, Role role) {
