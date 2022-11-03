@@ -53,6 +53,7 @@ public class LoginServlet extends HttpServlet {
 //        httpSession.setAttribute("user", user);
 
         out.println("<html><body>");
+
         out.println("<h1>true used"+user.getEmail()+user.getName()+"</h1>");
         out.println("</body></html>");
 

@@ -1,10 +1,12 @@
+import Dao.Implementation.DaoActivity;
 import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoResponsableImp;
 import Dao.Implementation.DaoUserImp;
-import Entity.Participant;
-import Entity.Responsable;
-import Entity.User;
+import Entity.*;
 import Util.BDUtil;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 import static Entity.TypeResponsable.Formateur;
 
@@ -119,7 +121,16 @@ public class Main {
         daoResponsableImp.activeUser(r);
         daoResponsableImp.findById(r.getId());
 
-
+        DaoActivity daoActivity = new DaoActivity();
+//        Activity a1=new Activity();
+//        a1.setTitle("first activity");
+//        a1.setStatus(Status.enCours);
+//        a1.setDess("ssssssssssssssss");
+//        a1.setType(Type.Evenement);
+//        a1.setStartDate(LocalDate.of(2022,11,02));
+//        a1.setEndDate(LocalDate.of(2022,11,05));
+//        daoActivity.insert(a1);
+        System.out.println(daoActivity.findAll().toString());
 //        BDUtil.getEntityManager().createQuery("select user from User user",User.class).getResultList().stream().map(u->u.getName()).forEach(System.out::println)
 //        BDUtil.closeDB();
 //        ImpDaoUser impDaoUser = new ImpDaoUser();
