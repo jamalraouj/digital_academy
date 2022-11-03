@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DaoExercise implements IDao<Exercise> {
 
-    @Override
+
     public boolean delete(Exercise o) {
         BDUtil.openDB();
         String sql = "DELETE FROM Exercise WHERE id =:id";
@@ -23,6 +23,11 @@ public class DaoExercise implements IDao<Exercise> {
         }catch (Exception e){
             return false;
         }
+    }
+
+    @Override
+    public Exercise findById(long id) {
+        return null;
     }
 
     @Override
@@ -42,15 +47,13 @@ public class DaoExercise implements IDao<Exercise> {
     }
 
     @Override
-    public boolean insert(Exercise o) {
+    public void insert(Exercise o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
-            return true;
         }
         catch(Exception e){
             e.getMessage();
-            return  false;
         }
 
     }
