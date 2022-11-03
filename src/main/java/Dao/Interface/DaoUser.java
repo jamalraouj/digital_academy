@@ -4,18 +4,9 @@ import Entity.User;
 
 public interface DaoUser<T>  {
 
-    boolean save(T o);
+    void activeUser(T o);
 
-    boolean activeUser(T o);
-
-    boolean disabledUser(T o);
-
-    boolean checkUsername(String username);
-
-
-    boolean checkEmail(String email);
-
-    boolean checkPassword(String password);
+    void disabledUser(T o);
 
     boolean checkUsernameAndPassword(T o);
 
