@@ -2,12 +2,9 @@ package Dao.Implementation;
 
 import Dao.Interface.IDao;
 import Entity.Activity;
-import Entity.Responsable;
-import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

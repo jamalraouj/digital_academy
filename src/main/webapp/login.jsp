@@ -25,7 +25,7 @@
     <input type="password" name="userPass" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
 
-  <button type="submit" class="btn btn-primary">Login</button>
+  <input type="submit" class="btn btn-primary" value="Login">
 </form>
 <%--<form action="<%=request. getContextPath()%>/login" method="post">--%>
 

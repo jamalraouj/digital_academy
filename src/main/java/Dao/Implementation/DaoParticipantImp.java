@@ -2,8 +2,7 @@ package Dao.Implementation;
 
 import Dao.Interface.IDao;
 import Entity.Participant;
-import Entity.Responsable;
-import Entity.User;
+import Entity.Person;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
@@ -25,7 +24,7 @@ public class DaoParticipantImp implements IDao<Participant> {
         try{
             BDUtil.openDB();
             String sql = "select part from Participant  part";
-            Query query = BDUtil.getEntityManager().createQuery(sql, User.class);
+            Query query = BDUtil.getEntityManager().createQuery(sql, Participant.class);
             listPart=query.getResultList();
         }
         catch(Exception e){
@@ -51,7 +50,6 @@ public class DaoParticipantImp implements IDao<Participant> {
         Participant p=new Participant();
         p=BDUtil.getEntityManager().find(Participant.class,o.getId());
         p.setName(o.getName());
-        p.setStatus(o.getStatus());
         p.setPhone(o.getPhone());
         p.setRole(o.getRole());
         BDUtil.getEntityManager().merge(p);

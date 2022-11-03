@@ -1,10 +1,8 @@
 package Dao.Implementation;
 
-import Dao.Interface.DaoUser;
 import Dao.Interface.IDao;
-import Entity.Participant;
 import Entity.Responsable;
-import Entity.User;
+import Entity.Person;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
@@ -26,7 +24,7 @@ public class DaoResponsableImp implements  IDao<Responsable>
         try{
             BDUtil.openDB();
             String sql = "select resp from Responsable  resp";
-            Query query = BDUtil.getEntityManager().createQuery(sql, User.class);
+            Query query = BDUtil.getEntityManager().createQuery(sql, Responsable.class);
             listResp=query.getResultList();
         }
         catch(Exception e){
@@ -52,7 +50,6 @@ public class DaoResponsableImp implements  IDao<Responsable>
         Responsable r=new Responsable();
         r=BDUtil.getEntityManager().find(Responsable.class,o.getId());
         r.setName(o.getName());
-        r.setStatus(o.getStatus());
         r.setPhone(o.getPhone());
         r.setRole(o.getRole());
         BDUtil.getEntityManager().merge(r);

@@ -51,6 +51,7 @@ public class DaoExercise implements IDao<Exercise> {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
+
         }
         catch(Exception e){
             e.getMessage();

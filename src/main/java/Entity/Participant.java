@@ -2,7 +2,7 @@ package Entity;
 import jakarta.persistence.Entity;
 
 @Entity
-public class Participant extends User{
+public class Participant extends Person {
 
     private String domaine;
     private String structure;
@@ -27,9 +27,15 @@ public class Participant extends User{
 
     }
 
-    public Participant(long id, String name, String phone, String email, String password, Boolean status, Role role, String domaine, String structure) {
-        super(id, name, phone, email, password, status, role);
+    public Participant(String domaine, String structure) {
         this.domaine = domaine;
         this.structure = structure;
     }
+
+    public Participant(long id, String name, String phone, Role role, String domaine, String structure) {
+        super(id, name, phone, role);
+        this.domaine = domaine;
+        this.structure = structure;
+    }
+
 }

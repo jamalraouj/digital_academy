@@ -1,7 +1,7 @@
 package Service.Interface;
 
-import Entity.User;
+import Entity.Person;
 
 public interface UserService {
-    User doLogin(String email , String password);
+    Person doLogin(String email , String password);
 }
