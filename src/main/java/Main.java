@@ -4,9 +4,6 @@ import Dao.Implementation.DaoResponsableImp;
 import Entity.*;
 import Util.BDUtil;
 
-import java.time.LocalDate;
-import java.util.Date;
-
 import static Entity.TypeResponsable.Formateur;
 
 public class Main {
@@ -17,9 +14,7 @@ public class Main {
         DaoResponsableImp daoResponsableImp=new DaoResponsableImp();
         Responsable r=new Responsable();
         r.setName("saida");
-        r.setEmail("saida@gmail.com");
         r.setPhone("6786876987");
-        r.setPassword("12345");
         r.setDomaine("info");
 
 
@@ -31,18 +26,21 @@ public class Main {
 
         Responsable r1=new Responsable();
         r1.setName("jamal");
-        r1.setEmail("jamal@gmail.com");
         r1.setPhone("6786876987");
-        r1.setPassword("123456");
         r1.setDomaine("info");
         r1.setTypeResp(Formateur);
         BDUtil.getEntityManager().persist(r1);
+        User u = new User();
+        u.setName("jamal");
+        u.setPhone("6786876987");
+        u.setEmail("jamal@gmail.com");
+        u.setPassword("1234");
+        u.setRole(Role.Administrator);
+        BDUtil.getEntityManager().persist(u);
 
         Responsable r2=new Responsable();
         r2.setName("raouia");
-        r2.setEmail("raouia@gmail.com");
         r2.setPhone("6786876987");
-        r2.setPassword("123456");
         r2.setDomaine("info");
         r2.setTypeResp(Formateur);
 
@@ -50,10 +48,8 @@ public class Main {
         p.setId(1);
         p.setName("ahmed");
         p.setPhone("7767868");
-        p.setPassword("123");
-        p.setEmail("ahmed@gmail.com");
 
-        System.out.println("name "+BDUtil.getEntityManager().find(User.class,1).getName());
+        System.out.println("name "+BDUtil.getEntityManager().find(Person.class,1).getName());
 
         System.out.println("===================");
         daoResponsableImp.insert(r2);
@@ -68,19 +64,15 @@ public class Main {
         DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
         Participant r4=new Participant();
         r4.setName("khadija");
-        r4.setEmail("khadija@gmail.com");
         r4.setPhone("6786876987");
-        r4.setPassword("12345");
         daoParticipantImp.insert(r4);
 //        ==================
 
 
-        Participant r3=new Participant();
-        r3.setName("saidaAAAA");
-        r3.setEmail("saidaAAAA@gmail.com");
-        r3.setPhone("6786876987");
-        r3.setPassword("12345");
-        BDUtil.getEntityManager().persist(r3);
+//        Participant r3=new Participant();
+//        r3.setName("saidaAAAA");
+//        r3.setPhone("6786876987");
+//        BDUtil.getEntityManager().persist(r3);
         System.out.println(daoParticipantImp.findAll());
 
         System.out.println("*****************");

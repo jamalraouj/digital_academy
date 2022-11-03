@@ -1,13 +1,9 @@
 package Dao.Implementation;
-import java.util.ArrayList;
 import Dao.Interface.DaoUser;
-import Entity.Responsable;
+import Entity.Person;
 import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class DaoAdminImp implements DaoUser<User> {
 
@@ -30,17 +26,16 @@ public class DaoAdminImp implements DaoUser<User> {
         BDUtil.getEntityManager().merge(r);
     }
 
-
     @Override
-    public boolean checkUsernameAndPassword(User o) {
-
+    public boolean checkEmailAndPassword(User o) {
         return false;
     }
+
 
     public User login(String email, String password) {
         User u = new User();
         BDUtil.openDB();
-        String sql = "select user from User user where user.email =:email and user.password =:password";
+        String sql = "select user from Person user where user.email =:email and user.password =:password";
         Query query = BDUtil.getEntityManager().createQuery(sql, User.class);
         query.setParameter("email", email);
         query.setParameter("password", password);
@@ -53,9 +48,10 @@ public class DaoAdminImp implements DaoUser<User> {
         return  u;
     }
 
-
-
-
+    @Override
+    public boolean logOut() {
+        return false;
+    }
 
 
 }

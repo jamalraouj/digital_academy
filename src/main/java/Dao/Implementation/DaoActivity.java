@@ -2,17 +2,14 @@ package Dao.Implementation;
 
 import Dao.Interface.IDao;
 import Entity.Activity;
-import Entity.Responsable;
-import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class DaoActivity implements IDao<Activity> {
-    @Override
+
     public boolean delete(Activity o) {
         BDUtil.openDB();
         String sql = "DELETE FROM Activity WHERE id =:id";
@@ -25,6 +22,11 @@ public class DaoActivity implements IDao<Activity> {
             return false;
         }
 
+    }
+
+    @Override
+    public Activity findById(long id) {
+        return null;
     }
 
     @Override
@@ -44,15 +46,13 @@ public class DaoActivity implements IDao<Activity> {
     }
 
     @Override
-    public boolean insert(Activity o) {
+    public void insert(Activity o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
-            return true;
         }
         catch(Exception e){
             e.getMessage();
-            return  false;
         }
 
     }

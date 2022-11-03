@@ -1,5 +1,6 @@
 package Servlete;
 
+import Entity.Person;
 import Entity.User;
 import Service.Implimentation.ServiceUserImp;
 import jakarta.servlet.*;
@@ -38,6 +39,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>true used</h1>");
+
 
 
         String email=request.getParameter("userEmail").trim();
@@ -51,9 +55,6 @@ public class LoginServlet extends HttpServlet {
 
 //        HttpSession httpSession = request.getSession();
 //        httpSession.setAttribute("user", user);
-
-        out.println("<html><body>");
-
         out.println("<h1>true used"+user.getEmail()+user.getName()+"</h1>");
         out.println("</body></html>");
 

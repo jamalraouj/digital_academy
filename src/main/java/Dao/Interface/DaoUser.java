@@ -1,5 +1,6 @@
 package Dao.Interface;
 
+import Entity.Person;
 import Entity.User;
 
 public interface DaoUser<T>  {
@@ -8,8 +9,9 @@ public interface DaoUser<T>  {
 
     void disabledUser(T o);
 
-    boolean checkUsernameAndPassword(T o);
+    boolean checkEmailAndPassword(T o);
 
     User login(String email , String password);
+    boolean logOut();
 
 }
