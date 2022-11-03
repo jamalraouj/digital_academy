@@ -4,5 +4,4 @@ package Entity;
 
 public class ThePresentParticipant {
 
-    
 }

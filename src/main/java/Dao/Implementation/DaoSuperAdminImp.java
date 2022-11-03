@@ -1,7 +1,6 @@
 package Dao.Implementation;
 
-import Dao.Interface.DaoUser;
-import Entity.Responsable;
+import Entity.Person;
 import Entity.User;
 import Util.BDUtil;
 import jakarta.persistence.Query;
@@ -13,7 +12,7 @@ public class DaoSuperAdminImp {
         User user = new User();
         BDUtil.openDB();
         String sql = "select user from User user where user.email =:email and user.password =:password";
-        Query query = BDUtil.getEntityManager().createQuery(sql, User.class);
+        Query query = BDUtil.getEntityManager().createQuery(sql, Person.class);
         query.setParameter("email", email);
         query.setParameter("password", password);
         try {
