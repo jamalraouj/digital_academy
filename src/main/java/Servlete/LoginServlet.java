@@ -25,15 +25,6 @@ public class LoginServlet extends HttpServlet {
         }
 //        System.out.println(httpSession.getAttribute("loggedUser").toString());
 
-
-
-
-
-        // Hello
-
-//        out.println("<html><body>");
-//        out.println("<h1>hhhhhhhhhhhhhh</h1>");
-//        out.println("</body></html>");
     }
 
     @Override
