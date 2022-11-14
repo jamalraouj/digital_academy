@@ -6,6 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="Entity.Type" %>
+<%@ page import="Entity.Responsable" %>
+<%@ page import="java.util.PriorityQueue" %>
+<%@ page import="java.util.LinkedList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -18,18 +24,33 @@
         <input type="text" name="title"  class="form-control" >
     </div>
     <div class="form-group">
-        <label >Title</label>
-        <input type="text" name="title"  class="form-control" >
-    </div>
-    <select>
-        <option >${Type.Formation}</option>
-        <option >${Type.Evenement}</option>
-        <option >${Type.Talk}</option>
-    </select>
-    <div class="form-group">
         <label >Description</label>
         <input type="text" name="description"  class="form-control" >
+    </div>
+    <select name="type">
+        <option >${Type.Formation}</option>
+        <option >${Type.Evenement}</option>
 
+    </select>
+    <select name="responsable">
+
+
+    <% List<Responsable> r = ((List<Responsable>) request.getAttribute("responsables")); %>
+
+    <% for( Responsable res :  r) { %>
+        <option value="<%= res.getId() %>"><%= res.getName() %></option>
+<%--    <p><%= res.getName() %></p>--%>
+    <%}%>
+    </select>
+<%--    <h1><% request.getAttribute("responsables"). %></h1>--%>
+    <div class="form-group">
+        <label >Start date</label>
+        <input type="date" name="startDate"  class="form-control" >
+
+    </div>
+    <div class="form-group">
+        <label >End date</label>
+        <input type="date" name="endDate"  class="form-control" >
     </div>
 
     <button type="submit" class="btn btn-primary">Login</button>
