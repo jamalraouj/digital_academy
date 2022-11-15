@@ -13,8 +13,6 @@ public class Exercise {
     private Date endDate;
     @Enumerated(EnumType.STRING)
     private Status status;
-
-
     public int getId() {
         return id;
     }

@@ -1,12 +1,16 @@
 package Entity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Participant extends Person {
 
     private String domaine;
     private String structure;
-
 
     public String getDomaine() {
         return domaine;
@@ -23,6 +27,9 @@ public class Participant extends Person {
     public void setStructure(String structure) {
         this.structure = structure;
     }
+
+    @OneToMany(mappedBy = "participant")
+    private List<Participation> participation=new ArrayList<>();
     public Participant() {
 
     }
@@ -34,6 +41,11 @@ public class Participant extends Person {
 
     public Participant(long id, String name, String phone, Role role, String domaine, String structure) {
         super(id, name, phone, role);
+        this.domaine = domaine;
+        this.structure = structure;
+    }
+    public Participant(String name, String phone, Role role, String domaine, String structure) {
+        super(name, phone, role);
         this.domaine = domaine;
         this.structure = structure;
     }

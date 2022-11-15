@@ -1,87 +1,79 @@
-import Dao.Implementation.DaoActivity;
 import Dao.Implementation.DaoParticipantImp;
-import Dao.Implementation.DaoResponsableImp;
 import Entity.*;
-import Service.Implimentation.ServiceActivity;
+import Service.Implimentation.ServiceParticipantImp;
 import Service.Interface.ServiceInterface;
-import Util.BDUtil;
-
-import java.util.List;
-
-import static Entity.TypeResponsable.Formateur;
 
 public class Main {
     public static void main(String[] args) {
+
+     //   DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
+        ServiceInterface serviceInterface=new ServiceParticipantImp();
+        Participant p=new Participant();
+        p.setName("khadija");
+        p.setPhone("6786876987");
+        p.setDomaine("sdsd");
+        p.setStructure("sdsdsd");
+        p.setRole(Role.Participant);
+
+        serviceInterface.insert(p);
+
+
         //===============================
 
-        DaoResponsableImp daoResponsableImp=new DaoResponsableImp();
-        Responsable r=new Responsable();
-        r.setName("saida");
-        r.setPhone("6786876987");
-        r.setDomaine("info");
+//        DaoResponsableImp daoResponsableImp=new DaoResponsableImp();
+//        Responsable r=new Responsable();
+//        r.setName("saida");
+//        r.setPhone("6786876987");
+//        r.setDomaine("info");
+//
+//
+//        r.setTypeResp(Formateur);
+//        BDUtil.getEntityManager().persist(r);
+//
+//
+//
+//
+//        Responsable r1=new Responsable();
+//        r1.setName("jamal");
+//        r1.setPhone("6786876987");
+//        r1.setDomaine("info");
+//        r1.setTypeResp(Formateur);
+//        BDUtil.getEntityManager().persist(r1);
+//        User u = new User();
+//        u.setName("jamal");
+//        u.setPhone("6786876987");
+//        u.setEmail("jamal@gmail.com");
+//        u.setPassword("1234");
+//        u.setRole(Role.Administrator);
+//        BDUtil.getEntityManager().persist(u);
+//
+//        Responsable r2=new Responsable();
+//        r2.setName("raouia");
+//        r2.setPhone("6786876987");
+//        r2.setDomaine("info");
+//        r2.setTypeResp(Formateur);
 
 
-        r.setTypeResp(Formateur);
-        BDUtil.getEntityManager().persist(r);
 
 
 
+//        Participant r1=new Participant();
+//        r1.setName("jamal");
+//        r1.setPhone("6786876987");
+//        daoParticipantImp.insert(r1);
+//
+//        Participant r2=new Participant();
+//        r2.setName("raouia");
+//        r2.setPhone("6786876987");
+//        daoParticipantImp.insert(r2);
 
-        Responsable r1=new Responsable();
-        r1.setName("jamal");
-        r1.setPhone("6786876987");
-        r1.setDomaine("info");
-        r1.setTypeResp(Formateur);
-        BDUtil.getEntityManager().persist(r1);
-        User u = new User();
-        u.setName("jamal");
-        u.setPhone("6786876987");
-        u.setEmail("jamal@gmail.com");
-        u.setPassword("1234");
-        u.setRole(Role.Administrator);
-        BDUtil.getEntityManager().persist(u);
-
-        Responsable r2=new Responsable();
-        r2.setName("raouia");
-        r2.setPhone("6786876987");
-        r2.setDomaine("info");
-        r2.setTypeResp(Formateur);
-
-        Responsable p=new Responsable();
-        p.setId(1);
-        p.setName("ahmed");
-        p.setPhone("7767868");
-
-        System.out.println("name "+BDUtil.getEntityManager().find(Person.class,1).getName());
-
-        System.out.println("===================");
-        daoResponsableImp.insert(r2);
-        //  boolean res=daoResponsable.delete(r);
-        //  System.out.println(res);
-//        daoResponsableImp.update(p);
-        System.out.println(daoResponsableImp.findAll());
-        System.out.println("particpant : ==============");
+       // System.out.println("name "+BDUtil.getEntityManager().find(Person.class,1).getName());
 
 
-//        ==================
-        DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
-        Participant r4=new Participant();
-        r4.setName("khadija");
-        r4.setPhone("6786876987");
-        daoParticipantImp.insert(r4);
-//        ==================
+//        System.out.println(daoParticipantImp.findAll());
+//
 
-
-//        Participant r3=new Participant();
-//        r3.setName("saidaAAAA");
-//        r3.setPhone("6786876987");
-//        BDUtil.getEntityManager().persist(r3);
-        System.out.println(daoParticipantImp.findAll());
-
-        System.out.println("*****************");
-        daoResponsableImp.findById(r.getId());
-
-        DaoActivity daoActivity = new DaoActivity();
+//        DaoActivity daoActivity = new DaoActivity();
 //        Activity a1=new Activity();
 //        a1.setTitle("first activity");
 //        a1.setStatus(Status.enCours);
@@ -90,7 +82,7 @@ public class Main {
 //        a1.setStartDate(LocalDate.of(2022,11,02));
 //        a1.setEndDate(LocalDate.of(2022,11,05));
 //        daoActivity.insert(a1);
-        System.out.println(daoActivity.findAll().toString());
+//        System.out.println(daoActivity.findAll().toString());
 //        BDUtil.getEntityManager().createQuery("select user from User user",User.class).getResultList().stream().map(u->u.getName()).forEach(System.out::println)
 //        BDUtil.closeDB();
 //        ImpDaoUser impDaoUser = new ImpDaoUser();

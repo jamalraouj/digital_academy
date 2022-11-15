@@ -13,7 +13,7 @@ public class ServiceUserImp implements UserService {
 
     @Override
     public User doLogin(String email, String password) {
-        // contenue create person entity  , user , admin super admin
+
         return daoUserImp.login(email, password);
     }
 }
