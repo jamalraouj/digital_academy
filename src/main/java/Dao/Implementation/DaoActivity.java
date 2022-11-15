@@ -50,6 +50,7 @@ public class DaoActivity implements IDao<Activity> {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
+            BDUtil.closeDB();
         }
         catch(Exception e){
             e.getMessage();

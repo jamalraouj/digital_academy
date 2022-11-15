@@ -7,4 +7,5 @@ public interface ServiceInterface<T> {
     public void delete(T o);
     public List<T> findAll();
     public void update(T o);
+    public T findById(long t);
 }

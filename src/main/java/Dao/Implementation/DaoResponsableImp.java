@@ -13,8 +13,9 @@ public class DaoResponsableImp implements  IDao<Responsable>
 {
     @Override
     public Responsable findById(long id){
-        Responsable r=new Responsable();
+        Responsable r=null;
         r=BDUtil.getEntityManager().find(Responsable.class,id);
+
         return r;
     }
 
