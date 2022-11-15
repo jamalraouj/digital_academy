@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Entity.Participant" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: saida-barakat
   Date: 04/11/2022
@@ -40,30 +41,42 @@
   </div>
 </nav>
 <%-- End NavBar --%>
-<h1 class="text"-primary ms-5">Les activités :</h1>
+<div class="d-flex justify-content-center py-5">
+    <h1 class="text-primary ">Les activités :</h1>
+    <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary">Ajouter</a>
+</div>
 <div class="mt-4 d-flex justify-content-center">
+
+
     <table class="table w-75">
         <thead class="table-light">
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Date de début</th>
-            <th>Date de fin</th>
-            <th>Status</th>
-            <th>Responsable</th>
+            <th>Id</th>
+            <th>Nom Complet</th>
+            <th>Phone</th>
+            <th>Domaine</th>
+            <th>Structure</th>
             <th>Action</th>
         </thead>
         <tbody>
-            <td>1</td>
-            <td>2</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>6</td>
-            <td>7</td>
-            <td>
-                <input type="button" value="Modifier" class="btn btn-primary">
-            </td>
+
+        <% List<Participant> p = (List<Participant>) request.getAttribute("participants"); %>
+
+            <% for( Participant part :  p) { %>
+        <tr>
+                <td><%= part.getId() %></td>
+                <td><%= part.getName() %></td>
+                <td><%= part.getPhone() %></td>
+                <td><%= part.getDomaine() %></td>
+                <td><%= part.getStructure() %></td>
+                <td>
+                    <a href="<%=request. getContextPath()%>/UpdateParticipant"  class="btn btn-primary">Modifier</a>
+                </td>
+        </tr>
+            <%}%>
+
+<%--            <td>--%>
+<%--                <input type="button" value="Modifier" class="btn btn-primary">--%>
+<%--            </td>--%>
         </tbody>
     </table>
 </div>

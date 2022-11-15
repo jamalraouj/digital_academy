@@ -1,5 +1,7 @@
 package Entity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 public class Responsable extends Person {
@@ -14,7 +16,7 @@ public class Responsable extends Person {
     public void setDomaine(String domaine) {
         this.domaine = domaine;
     }
-
+    @Enumerated(EnumType.STRING)
     public TypeResponsable getTypeResp() {
         return TypeResp;
     }

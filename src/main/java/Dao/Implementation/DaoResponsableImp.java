@@ -18,6 +18,7 @@ public class DaoResponsableImp implements  IDao<Responsable>
         return r;
     }
 
+
     @Override
     public List<Responsable> findAll() {
         List<Responsable> listResp =new ArrayList<>();
