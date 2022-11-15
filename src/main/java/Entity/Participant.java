@@ -1,12 +1,12 @@
 package Entity;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Participant extends Person {
 
     private String domaine;
     private String structure;
-
 
     public String getDomaine() {
         return domaine;
@@ -34,6 +34,11 @@ public class Participant extends Person {
 
     public Participant(long id, String name, String phone, Role role, String domaine, String structure) {
         super(id, name, phone, role);
+        this.domaine = domaine;
+        this.structure = structure;
+    }
+    public Participant(String name, String phone, Role role, String domaine, String structure) {
+        super(name, phone, role);
         this.domaine = domaine;
         this.structure = structure;
     }

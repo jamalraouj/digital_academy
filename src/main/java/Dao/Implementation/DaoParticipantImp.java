@@ -52,6 +52,8 @@ public class DaoParticipantImp implements IDao<Participant> {
         p.setName(o.getName());
         p.setPhone(o.getPhone());
         p.setRole(o.getRole());
+        p.setDomaine(o.getDomaine());
+        p.setStructure(o.getStructure());
         BDUtil.getEntityManager().merge(p);
         return true;
     }

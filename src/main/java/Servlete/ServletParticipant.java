@@ -2,9 +2,7 @@ package Servlete;
 
 import Entity.Participant;
 import Service.Implimentation.ServiceParticipantImp;
-import Service.Implimentation.ServicePersonImp;
 import Service.Interface.ServiceInterface;
-import Service.Interface.ServiceParticipant;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;

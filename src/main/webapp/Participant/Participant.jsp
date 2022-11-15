@@ -1,5 +1,6 @@
 <%@ page import="Entity.Participant" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%--
   Created by IntelliJ IDEA.
   User: saida-barakat
   Date: 04/11/2022
@@ -16,7 +17,7 @@
 <%-- Start NavBar--%>
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Pole Digital Academy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,16 +25,16 @@
       <ul class="navbar-nav w-100 d-flex justify-content-end">
 
         <li class="nav-item px-5 mx-2">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="<%=request. getContextPath()%>/Participant">Participants</a>
         </li>
         <li class="nav-item px-5 mx-2">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="<%=request. getContextPath()%>/Responsable">Responsables</a>
         </li>
         <li class="nav-item px-5 mx-2 ">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="<%=request. getContextPath()%>/activity">Activités</a>
         </li>
         <li class="nav-item bg-gradient px-5 ms-2s">
-          <a class="nav-link" href="login">Logout</a>
+          <a class="nav-link" href="<%=request. getContextPath()%>/login">Logout</a>
         </li>
 
       </ul>
@@ -41,13 +42,16 @@
   </div>
 </nav>
 <%-- End NavBar --%>
-<div class="d-flex justify-content-center py-5">
-    <h1 class="text-primary ">Les activités :</h1>
-    <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary">Ajouter</a>
+
+<div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-between py-5 w-75">
+        <h1 class="text-primary ">Les participants :</h1>
+        <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary">Ajouter un participant</a>
+    </div>
 </div>
-<div class="mt-4 d-flex justify-content-center">
 
 
+    <div class="d-flex justify-content-center">
     <table class="table w-75">
         <thead class="table-light">
             <th>Id</th>
@@ -69,7 +73,7 @@
                 <td><%= part.getDomaine() %></td>
                 <td><%= part.getStructure() %></td>
                 <td>
-                    <a href="<%=request. getContextPath()%>/UpdateParticipant"  class="btn btn-primary">Modifier</a>
+                    <a href="<%=request. getContextPath()%>/UpdateParticipant?id=<%=part.getId()%>"  class="btn btn-primary">Modifier</a>
                 </td>
         </tr>
             <%}%>
@@ -79,7 +83,8 @@
 <%--            </td>--%>
         </tbody>
     </table>
-</div>
+    </div>
+
 
 
 </body>

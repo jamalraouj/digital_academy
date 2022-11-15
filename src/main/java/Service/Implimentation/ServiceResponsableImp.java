@@ -1,5 +1,6 @@
 package Service.Implimentation;
 
+import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoResponsableImp;
 import Dao.Interface.IDao;
 
@@ -16,7 +17,8 @@ public class ServiceResponsableImp implements ServiceInterface<Responsable> {
 
     @Override
     public void insert(Responsable o) {
-
+        DaoResponsableImp daoResponsableImp = new DaoResponsableImp();
+        daoResponsableImp.insert(o);
     }
 
     @Override

@@ -24,6 +24,12 @@ public class Person {
 
     }
 
+    public Person(String name, String phone,Role role) {
+        this.name = name;
+        this.phone = phone;
+        this.role = role;
+    }
+
     public long getId() {
         return id;
     }

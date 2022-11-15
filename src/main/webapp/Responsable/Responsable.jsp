@@ -17,7 +17,7 @@
 <%-- Start NavBar--%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Pole Digital Academy</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,16 +25,16 @@
             <ul class="navbar-nav w-100 d-flex justify-content-end">
 
                 <li class="nav-item px-5 mx-2">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active" aria-current="page" href="<%=request. getContextPath()%>/Participant">Participants</a>
                 </li>
                 <li class="nav-item px-5 mx-2">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="<%=request. getContextPath()%>/Responsable">Responsables</a>
                 </li>
                 <li class="nav-item px-5 mx-2 ">
-                    <a class="nav-link" href="#">Pricing</a>
+                    <a class="nav-link" href="<%=request. getContextPath()%>/activity">Activités</a>
                 </li>
                 <li class="nav-item bg-gradient px-5 ms-2s">
-                    <a class="nav-link" href="login">Logout</a>
+                    <a class="nav-link" href="<%=request. getContextPath()%>/login">Logout</a>
                 </li>
 
             </ul>
@@ -43,7 +43,7 @@
 </nav>
 <%-- End NavBar --%>
 <div class="d-flex justify-content-center py-5">
-    <h1 class="text-primary ">Les activités :</h1>
+    <h1 class="text-primary ">Les Responsables :</h1>
     <a href="<%=request. getContextPath()%>/AddResponsable"  class="btn btn-primary">Ajouter</a>
 </div>
 <div class="mt-4 d-flex justify-content-center">

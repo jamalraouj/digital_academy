@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>Update participant</h1>
-<form action="" method="post">
+<form action="<%=request. getContextPath()%>/AddParticipant" method="post">
     <div class="form-group">
         <label >Name</label>
         <input type="text" name="name"  class="form-control" >

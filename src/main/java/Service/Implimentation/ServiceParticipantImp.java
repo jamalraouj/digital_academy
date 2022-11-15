@@ -1,5 +1,6 @@
 package Service.Implimentation;
 
+import Dao.Implementation.DaoActivity;
 import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoResponsableImp;
 import Dao.Interface.IDao;
@@ -13,7 +14,8 @@ public class ServiceParticipantImp implements ServiceInterface<Participant> {
 
     @Override
     public void insert(Participant o) {
-
+        DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
+        daoParticipantImp.insert(o);
     }
 
     @Override
@@ -29,6 +31,13 @@ public class ServiceParticipantImp implements ServiceInterface<Participant> {
 
     @Override
     public void update(Participant o) {
+        IDao daoParticipantImp = new DaoParticipantImp();
+        daoParticipantImp.update(o);
+    }
 
+    @Override
+    public Participant findById(long t) {
+        IDao daoParticipant=new DaoParticipantImp();
+        return (Participant) daoParticipant.findById(t);
     }
 }

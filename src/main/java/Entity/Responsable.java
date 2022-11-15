@@ -9,6 +9,11 @@ public class Responsable extends Person {
 //    @Enumerated(EnumType.STRING)
     private TypeResponsable TypeResp;
 
+    public Responsable(String name, String phone,Role role,TypeResponsable typeResp, String domaine) {
+        super(name, phone, role);
+        this.domaine = domaine;
+        TypeResp = typeResp;
+    }
     public String getDomaine() {
         return domaine;
     }
