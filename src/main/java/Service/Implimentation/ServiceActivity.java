@@ -21,11 +21,19 @@ public class ServiceActivity implements ServiceInterface<Activity> {
 
     @Override
     public List<Activity> findAll() {
-        return null;
+        IDao daoActivity = new DaoActivity();
+        return daoActivity.findAll();
+
+
     }
 
     @Override
     public void update(Activity o) {
 
+    }
+
+    @Override
+    public Activity findById(long t) {
+        return null;
     }
 }

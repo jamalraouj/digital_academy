@@ -1,5 +1,6 @@
 import Dao.Implementation.DaoParticipantImp;
 import Entity.*;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -12,6 +13,43 @@ public class Main {
 //        r.setRole(Role.Participant);
 //
 //        daoParticipantImp.insert(r);
+
+
+        //===============================
+
+//        DaoResponsableImp daoResponsableImp=new DaoResponsableImp();
+//        Responsable r=new Responsable();
+//        r.setName("saida");
+//        r.setPhone("6786876987");
+//        r.setDomaine("info");
+//
+//
+//        r.setTypeResp(Formateur);
+//        BDUtil.getEntityManager().persist(r);
+//
+//
+//
+//
+//        Responsable r1=new Responsable();
+//        r1.setName("jamal");
+//        r1.setPhone("6786876987");
+//        r1.setDomaine("info");
+//        r1.setTypeResp(Formateur);
+//        BDUtil.getEntityManager().persist(r1);
+//        User u = new User();
+//        u.setName("jamal");
+//        u.setPhone("6786876987");
+//        u.setEmail("jamal@gmail.com");
+//        u.setPassword("1234");
+//        u.setRole(Role.Administrator);
+//        BDUtil.getEntityManager().persist(u);
+//
+//        Responsable r2=new Responsable();
+//        r2.setName("raouia");
+//        r2.setPhone("6786876987");
+//        r2.setDomaine("info");
+//        r2.setTypeResp(Formateur);
+
 
 
 
@@ -29,8 +67,8 @@ public class Main {
        // System.out.println("name "+BDUtil.getEntityManager().find(Person.class,1).getName());
 
 
-        System.out.println(daoParticipantImp.findAll());
-
+//        System.out.println(daoParticipantImp.findAll());
+//
 
 //        DaoActivity daoActivity = new DaoActivity();
 //        Activity a1=new Activity();

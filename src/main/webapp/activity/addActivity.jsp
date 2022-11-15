@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page import="Entity.Type" %>
+<%@ page import="Entity.Status" %>
 <%@ page import="Entity.Responsable" %>
 <%@ page import="java.util.PriorityQueue" %>
 <%@ page import="java.util.LinkedList" %>
@@ -13,12 +14,13 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="java.io.IOException" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
-<form action="<%=request. getContextPath()%>/login" method="post">
+<form action="<%=request. getContextPath()%>/add_activity" method="post">
     <div class="form-group">
         <label >Title</label>
         <input type="text" name="title"  class="form-control" >
@@ -43,6 +45,13 @@
     <%}%>
     </select>
 <%--    <h1><% request.getAttribute("responsables"). %></h1>--%>
+    <select name="status">
+        <option >${Status.enCours}</option>
+        <option >${Status.tetmine}</option>
+
+
+
+    </select>
     <div class="form-group">
         <label >Start date</label>
         <input type="date" name="startDate"  class="form-control" >

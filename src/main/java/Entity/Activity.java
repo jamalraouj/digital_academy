@@ -89,6 +89,15 @@ public class Activity {
         this.status = status;
         this.responsable = responsable;
     }
+    public Activity(String title, String dess, Type type, LocalDate startDate, LocalDate endDate, Status status, Responsable responsable) {
+        this.title = title;
+        this.dess = dess;
+        this.type = type;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.status = status;
+        this.responsable = responsable;
+    }
 
     @Override
     public String toString() {
