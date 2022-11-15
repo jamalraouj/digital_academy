@@ -57,6 +57,19 @@ public class DaoParticipantImp implements IDao<Participant> {
         BDUtil.getEntityManager().merge(p);
         return true;
     }
+    public List<Participant> findParticipantActivity(long id){
+        List<Participant> listPart =new ArrayList<>();
+        try{
+            BDUtil.openDB();
+            String sql = "SELECT p FROM Participant p  WHERE EXISTS ( SELECT pt FROM Participation pt where p.id = pt.participant.id AND pt.activity.id= :id ) ";
+            Query query = BDUtil.getEntityManager().createQuery(sql, Participant.class);
+            listPart=query.getResultList();
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
+        return  listPart;
+    }
 
 
 }

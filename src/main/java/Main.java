@@ -1,18 +1,21 @@
 import Dao.Implementation.DaoParticipantImp;
 import Entity.*;
+import Service.Implimentation.ServiceParticipantImp;
+import Service.Interface.ServiceInterface;
 
 public class Main {
     public static void main(String[] args) {
 
-        DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
-//        Participant r=new Participant();
-//        r.setName("saida");
-//        r.setPhone("6786876987");
-//        r.setDomaine("sdsd");
-//        r.setStructure("sdsdsd");
-//        r.setRole(Role.Participant);
-//
-//        daoParticipantImp.insert(r);
+     //   DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
+        ServiceInterface serviceInterface=new ServiceParticipantImp();
+        Participant p=new Participant();
+        p.setName("khadija");
+        p.setPhone("6786876987");
+        p.setDomaine("sdsd");
+        p.setStructure("sdsdsd");
+        p.setRole(Role.Participant);
+
+        serviceInterface.insert(p);
 
 
         //===============================

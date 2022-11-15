@@ -14,7 +14,7 @@ public class ServiceParticipantImp implements ServiceInterface<Participant> {
 
     @Override
     public void insert(Participant o) {
-        DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
+        IDao daoParticipantImp=new DaoParticipantImp();
         daoParticipantImp.insert(o);
     }
 

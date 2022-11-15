@@ -3,7 +3,8 @@ package Entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Activity {
@@ -20,6 +21,9 @@ public class Activity {
     private Status status;
     @ManyToOne
     private Responsable responsable;
+
+    @OneToMany(mappedBy = "activity")
+    private List<Participation> participation=new ArrayList<>();
 
     public int getId() {
         return id;

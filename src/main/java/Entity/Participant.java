@@ -1,6 +1,10 @@
 package Entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Participant extends Person {
@@ -23,6 +27,9 @@ public class Participant extends Person {
     public void setStructure(String structure) {
         this.structure = structure;
     }
+
+    @OneToMany(mappedBy = "participant")
+    private List<Participation> participation=new ArrayList<>();
     public Participant() {
 
     }

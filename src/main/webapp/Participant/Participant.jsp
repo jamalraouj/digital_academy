@@ -1,5 +1,6 @@
 <%@ page import="Entity.Participant" %>
 <%@ page import="java.util.List" %>
+<%@ page import="Entity.Activity" %>
 <%--
   Created by IntelliJ IDEA.
   User: saida-barakat
@@ -52,6 +53,23 @@
 
 
     <div class="d-flex justify-content-center">
+        <form action="<%=request. getContextPath()%>/AddParticipant" method="post">
+            <div>
+                <div class="form-group">
+                    <label >Les Activités :</label>
+                    <select name="activity">
+
+
+                        <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
+                        <option value="All">All</option>
+                        <% for( Activity act :  a) { %>
+                        <option name="activity" value="<%= act.getId() %>"><%= act.getTitle() %></option>
+                        <%}%>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Done</button>
+                </div>
+            </div>
+        </form>
     <table class="table w-75">
         <thead class="table-light">
             <th>Id</th>

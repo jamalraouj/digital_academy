@@ -3,18 +3,22 @@ package Entity;
 //the present participant in activities && manyToMany between participant and activity , plus presents
 
 
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 
-import java.io.Serializable;
-
-public class ThePresentParticipant implements Serializable {
-    @OneToMany
+@Entity
+public class Participation {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private long id;
+    @ManyToOne
     private  Participant participant;
-    @OneToMany
+    @ManyToOne
     private  Activity activity;
 
-    public ThePresentParticipant() {
+    public Participation() {
+
     }
+
 
     public Participant getParticipant() {
         return participant;
@@ -32,7 +36,7 @@ public class ThePresentParticipant implements Serializable {
         this.activity = activity;
     }
 
-    public ThePresentParticipant(Participant participant, Activity activity) {
+    public Participation(Participant participant, Activity activity) {
         this.participant = participant;
         this.activity = activity;
     }

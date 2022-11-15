@@ -29,8 +29,6 @@ public class AddResponsable extends HttpServlet {
         String domaine =request.getParameter("domaine").trim();
         ServiceInterface<Responsable> serviceResponsable = new ServiceResponsableImp();
         Responsable r=new Responsable(name,phone,role,typeResp,domaine);
-        System.out.println("=== add responsable ===");
-        System.out.println(r.toString());
         serviceResponsable.insert(r);
 
 //        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
