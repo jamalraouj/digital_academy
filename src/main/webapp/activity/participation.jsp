@@ -16,6 +16,8 @@
 </head>
 <body>
 <div class="d-flex justify-content-center">
+    <% List<Participant> p = (List<Participant>) request.getAttribute("participants"); %>
+    <form method="post" action="<%=request. getContextPath()%>/Activity/participation?id=<%=request.getParameter("id") %>">
     <table class="table w-75">
         <thead class="table-light">
         <th>Id</th>
@@ -26,9 +28,6 @@
         <th>Action</th>
         </thead>
         <tbody>
-
-        <% List<Participant> p = (List<Participant>) request.getAttribute("participants"); %>
-<form method="post" action="<%=request. getContextPath()%>/Activity/participation?id=<%=request.getParameter("id") %>">
         <% for( Participant part :  p) { %>
         <tr>
 
@@ -42,14 +41,15 @@
             <td><%= part.getStructure() %></td>
         </tr>
         <%}%>
-    <input type="submit">
-</form>
+
 
         <%--            <td>--%>
         <%--                <input type="button" value="Modifier" class="btn btn-primary">--%>
         <%--            </td>--%>
         </tbody>
     </table>
+        <input type="submit">
+    </form>
 </div>
 
 </body>

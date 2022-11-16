@@ -16,6 +16,12 @@ import java.time.LocalDate;
 public class AddParticipant extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         System.out.println("ajouter ====");
         request.getRequestDispatcher("/Participant/AddParticipant.jsp").forward(request,response);
     }

@@ -34,7 +34,7 @@
                     <a class="nav-link" href="<%=request. getContextPath()%>/activity">Activités</a>
                 </li>
                 <li class="nav-item bg-gradient px-5 ms-2s">
-                    <a class="nav-link" href="<%=request. getContextPath()%>/login">Logout</a>
+                    <a class="nav-link" href="<%=request. getContextPath()%>/LogoutServlet">Logout</a>
                 </li>
 
             </ul>
@@ -45,28 +45,14 @@
 
 <div class="d-flex justify-content-center">
     <div class="d-flex justify-content-between py-5 w-75">
-        <h1 class="text-primary ">Les participants :</h1>
+        <h1 class="text-primary ">Les activites :</h1>
         <a href="<%=request. getContextPath()%>/activity/add_activity"  class="btn btn-primary">Ajouter un activity</a>
     </div>
 </div>
 
 
 <div class="d-flex justify-content-center">
-    <form action="<%=request. getContextPath()%>/AddParticipant" method="post">
-        <div>
-            <div class="form-group">
-                <label >Les Activités :</label>
-                <select name="activity">
-                    <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
-                    <option value="All">All</option>
-                    <% for( Activity act :  a) { %>
-                    <option name="activity" value="<%= act.getId() %>"><%= act.getTitle() %></option>
-                    <%}%>
-                </select>
-                <button type="submit" class="btn btn-primary">Done</button>
-            </div>
-        </div>
-    </form>
+    <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
     <table class="table w-75">
         <thead class="table-light">
         <th>Id</th>

@@ -17,6 +17,12 @@ import java.util.List;
 public class ActivityUpdate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         response.setContentType("text/html");
         ServiceInterface serviceActivity =new ServiceActivity();
         Activity activity = (Activity) serviceActivity.findById(Long.parseLong(request.getParameter("id")));
@@ -31,6 +37,7 @@ public class ActivityUpdate extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
          int id = Integer.parseInt(request.getParameter("idActivi"));
         String title =request.getParameter("title").trim();

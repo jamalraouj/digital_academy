@@ -1,10 +1,9 @@
 package Service.Implimentation;
 
 import Dao.Implementation.DaoActivity;
-import Dao.Implementation.DaoParticipantImp;
 import Dao.Interface.IDao;
 import Entity.Activity;
-import Entity.Participant;
+import Entity.Participation;
 import Service.Interface.ServiceInterface;
 
 import java.util.List;

@@ -1,5 +1,7 @@
 package Service.Interface;
 
+import Entity.Participation;
+
 import java.util.List;
 
 public interface ServiceInterface<T> {
