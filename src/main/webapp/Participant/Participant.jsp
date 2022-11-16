@@ -18,7 +18,7 @@
 <%-- Start NavBar--%>
  <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Pole Digital Academy</a>
+    <a class="navbar-brand text-primary" href="#">Pole Digital Academy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -47,29 +47,36 @@
 <div class="d-flex justify-content-center">
     <div class="d-flex justify-content-between py-5 w-75">
         <h1 class="text-primary ">Les participants :</h1>
-        <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary">Ajouter un participant</a>
+        <div class="d-flex bg-success">
+            <div class="bg-danger">
+                <form action="<%=request. getContextPath()%>/Participant" method="get">
+                    <div>
+                        <div class="form-group">
+                            <label >Les Activités :</label>
+                            <select name="activity">
+
+
+                                <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
+                                <option value="All">All</option>
+                                <% for( Activity act :  a) { %>
+                                <option  value="<%= act.getId() %>"><%= act.getTitle() %></option>
+                                <%}%>
+                            </select>
+                            <button type="submit" class="btn btn-primary">Done</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="bg-warning">
+                <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary h-75">Ajouter</a>
+            </div>
+        </div>
     </div>
 </div>
 
 
     <div class="d-flex justify-content-center">
-        <form action="<%=request. getContextPath()%>/AddParticipant" method="post">
-            <div>
-                <div class="form-group">
-                    <label >Les Activités :</label>
-                    <select name="activity">
 
-
-                        <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
-                        <option value="All">All</option>
-                        <% for( Activity act :  a) { %>
-                        <option name="activity" value="<%= act.getId() %>"><%= act.getTitle() %></option>
-                        <%}%>
-                    </select>
-                    <button type="submit" class="btn btn-primary">Done</button>
-                </div>
-            </div>
-        </form>
     <table class="table w-75">
         <thead class="table-light">
             <th>Id</th>

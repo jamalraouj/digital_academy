@@ -38,7 +38,8 @@ public class ServiceResponsableImp implements ServiceInterface<Responsable> {
 
     @Override
     public void update(Responsable o) {
-
+        IDao daoResponsableImp = new DaoResponsableImp();
+        daoResponsableImp.update(o);
     }
 
 

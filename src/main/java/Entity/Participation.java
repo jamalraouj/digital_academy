@@ -41,4 +41,12 @@ public class Participation {
         this.activity = activity;
     }
 
+    @Override
+    public String toString() {
+        return "Participation{" +
+                "id=" + id +
+                ", participant=" + participant +
+                ", activity=" + activity +
+                '}';
+    }
 }
