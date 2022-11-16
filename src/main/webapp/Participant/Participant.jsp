@@ -45,30 +45,28 @@
 <%-- End NavBar --%>
 
 <div class="d-flex justify-content-center">
-    <div class="d-flex justify-content-between py-5 w-75">
+    <div class="d-flex justify-content-between pt-5 pb-3 w-75">
         <h1 class="text-primary ">Les participants :</h1>
-        <div class="d-flex bg-success">
-            <div class="bg-danger">
+        <div class="d-flex d-flex justify-content-between">
+            <div>
                 <form action="<%=request. getContextPath()%>/Participant" method="get">
-                    <div>
-                        <div class="form-group">
+
+                        <div class="form-group bg-light">
                             <label >Les Activités :</label>
                             <select name="activity">
-
-
                                 <% List<Activity> a = ((List<Activity>) request.getAttribute("activities")); %>
                                 <option value="All">All</option>
                                 <% for( Activity act :  a) { %>
                                 <option  value="<%= act.getId() %>"><%= act.getTitle() %></option>
                                 <%}%>
                             </select>
-                            <button type="submit" class="btn btn-primary">Done</button>
+                            <button type="submit" class="btn btn-primary h-75 mb-0">Done</button>
                         </div>
-                    </div>
+
                 </form>
             </div>
-            <div class="bg-warning">
-                <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary h-75">Ajouter</a>
+            <div class="ms-3">
+                <a href="<%=request. getContextPath()%>/AddParticipant"  class="btn btn-primary h-75 mb-0">Ajouter</a>
             </div>
         </div>
     </div>
