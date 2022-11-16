@@ -44,10 +44,8 @@
 <% Participant p= ((Participant) request.getAttribute("participantToEdit"));%>
 
 <div class="d-flex flex-column flex-md-row">
-    <div class="w-100 w-md-50">
-        <img src = "src/main/assets/images/update.svg" alt="update"/>
-    </div>
-    <div class="w-100 w-md-50">
+    <div class="w-100 d-flex justify-content-center">
+      <div class="w-50 mt-5">
         <h1>Update participant</h1>
         <form action="" method="post">
             <div class="form-group mt-5">
@@ -71,6 +69,7 @@
                 <button type="submit" class="btn btn-primary mt-1 w-50 w-md-100">Update</button>
             </div>
         </form>
+    </div>
     </div>
 </div>
 </body>
