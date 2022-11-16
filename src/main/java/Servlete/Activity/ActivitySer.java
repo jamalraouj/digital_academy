@@ -1,6 +1,8 @@
 package Servlete.Activity;
 
 import Entity.Activity;
+import Entity.Role;
+import Entity.User;
 import Service.Implimentation.ServiceActivity;
 import Service.Interface.ServiceInterface;
 import jakarta.servlet.*;
@@ -14,6 +16,12 @@ import java.util.List;
 public class ActivitySer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         response.setContentType("text/html");
         ServiceInterface<Activity> serviceActivity = new ServiceActivity();
         List<Activity> activities =  serviceActivity.findAll();

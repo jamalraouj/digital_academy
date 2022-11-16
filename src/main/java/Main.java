@@ -1,9 +1,11 @@
 import Dao.Implementation.DaoActivity;
 import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoParticipationImp;
+import Dao.Interface.IDao;
 import Entity.*;
 import Service.Implimentation.ServiceActivity;
 import Service.Implimentation.ServiceParticipantImp;
+import Service.Implimentation.ServiceParticipationImp;
 import Service.Interface.ServiceInterface;
 
 import Util.BDUtil;
@@ -15,8 +17,18 @@ public class Main {
     public static void main(String[] args) {
 
 
+            User user = new User();
+            user.setName("jamal");
+            user.setPhone("6786876987");
+            user.setRole(Role.SuperAdmin);
+            user.setEmail("super@gmail.com");
+            user.setPassword("1234");
+            BDUtil.openDB();
+            BDUtil.getEntityManager().persist(user);
+            BDUtil.closeDB();
 
 
+System.exit(0);
         DaoActivity daoActivity = new DaoActivity();
 
         DaoParticipantImp daoParticipantImp1 = new DaoParticipantImp();

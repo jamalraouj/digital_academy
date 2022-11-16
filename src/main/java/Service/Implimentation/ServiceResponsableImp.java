@@ -1,10 +1,10 @@
 package Service.Implimentation;
 
-import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoResponsableImp;
 import Dao.Interface.IDao;
 
 
+import Entity.Participation;
 import Entity.Responsable;
 import Service.Interface.ServiceInterface;
 

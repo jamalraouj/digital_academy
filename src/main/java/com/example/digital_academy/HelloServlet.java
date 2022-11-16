@@ -2,6 +2,8 @@ package com.example.digital_academy;
 
 import java.io.*;
 
+import Entity.Role;
+import Entity.User;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
@@ -14,6 +16,13 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.SuperAdmin){
+
+            response.sendRedirect(request.getContextPath() + "/login");
+            return;
+        }
         response.setContentType("text/html");
 
         // Hello

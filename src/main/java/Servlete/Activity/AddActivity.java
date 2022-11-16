@@ -1,10 +1,7 @@
 package Servlete.Activity;
 
 import Dao.Implementation.DaoResponsableImp;
-import Entity.Activity;
-import Entity.Responsable;
-import Entity.Status;
-import Entity.Type;
+import Entity.*;
 import Service.Implimentation.ServiceActivity;
 import Service.Implimentation.ServiceResponsableImp;
 import Service.Interface.ServiceInterface;
@@ -22,6 +19,12 @@ import java.util.List;
 public class AddActivity extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         response.setContentType("text/html");
 //        getServletConfig().getServletContext()
 //                .getRequestDispatcher("/activity/addActivity.jsp").forward(request,response);
@@ -40,6 +43,7 @@ public class AddActivity extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
         String title =request.getParameter("title").trim();
         String description =request.getParameter("description").trim();
