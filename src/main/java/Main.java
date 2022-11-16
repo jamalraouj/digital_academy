@@ -1,22 +1,47 @@
+import Dao.Implementation.DaoActivity;
 import Dao.Implementation.DaoParticipantImp;
+import Dao.Implementation.DaoParticipationImp;
 import Entity.*;
 import Service.Implimentation.ServiceActivity;
 import Service.Implimentation.ServiceParticipantImp;
 import Service.Interface.ServiceInterface;
 
+import Util.BDUtil;
+
+import java.time.LocalDate;
+
+
 public class Main {
     public static void main(String[] args) {
 
-     //   DaoParticipantImp daoParticipantImp=new DaoParticipantImp();
-        ServiceInterface serviceInterface=new ServiceParticipantImp();
-        Participant p=new Participant();
-        p.setName("khadija");
-        p.setPhone("6786876987");
-        p.setDomaine("sdsd");
-        p.setStructure("sdsdsd");
-        p.setRole(Role.Participant);
 
-        serviceInterface.insert(p);
+
+
+        DaoActivity daoActivity = new DaoActivity();
+
+        DaoParticipantImp daoParticipantImp1 = new DaoParticipantImp();
+        Participant p2=daoParticipantImp1.findById(602);
+        Participant p3=daoParticipantImp1.findById(302);
+
+        System.out.println(p2.toString());
+        Activity a2 = daoActivity.findById(4);
+        System.out.println(a2.toString());
+//        daoActivity.insert(a1);
+        System.out.println(daoActivity.findAll().toString());
+        Participation part=new Participation();
+        part.setActivity(a2);
+        part.setParticipant(p2);
+        BDUtil.openDB();
+        BDUtil.getEntityManager().persist(part);
+        BDUtil.closeDB();
+        System.out.println(part.toString());
+        System.out.println(p2);
+
+        DaoParticipationImp daoParticipationImp=new DaoParticipationImp();
+        System.out.println("=========------!!!!!========");
+        System.out.println(daoParticipationImp.findParticipantActivity(4));
+
+
 
 
         //===============================

@@ -14,19 +14,24 @@
 <%--  <%@include file="bootstrap/css/bootstrap.css" %>--%>
 </head>
 <body>
+<div class="d-flex justify-content-center  h-100">
+  <div class="w-25 my-auto border-Top border-4 border-primary py-5">
 <form action="<%=request. getContextPath()%>/login" method="post">
-  <div class="form-group">
+  <div class="form-group mx-2 mb-3">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" name="userEmail"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-  <div class="form-group">
+  <div class="form-group mx-2 my-3">
     <label for="exampleInputPassword1">Password</label>
     <input type="password" name="userPass" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
-
-  <input type="submit" class="btn btn-primary" value="Login">
+<div class="w-100 d-flex justify-content-center mt-5 ">
+  <input type="submit" class="btn btn-primary w-100" value="Login" >
+</div>
 </form>
+  </div>
+</div>
 <%--<form action="<%=request. getContextPath()%>/login" method="post">--%>
 
 <%--  Email Id:<input type="text" name="userEmail"/><br/>--%>

@@ -70,7 +70,7 @@
             <td><%= res.getTypeResp() %></td>
             <td><%= res.getDomaine() %></td>
             <td>
-                <a href="<%=request. getContextPath()%>/UpdateResponsable"  class="btn btn-primary">Modifier</a>
+                <a href="<%=request. getContextPath()%>/UpdateResponsable?id=<%=res.getId()%>"  class="btn btn-primary">Modifier</a>
             </td>
         </tr>
         <%}%>

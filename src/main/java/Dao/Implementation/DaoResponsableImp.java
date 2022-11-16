@@ -54,6 +54,8 @@ public class DaoResponsableImp implements  IDao<Responsable>
         r.setName(o.getName());
         r.setPhone(o.getPhone());
         r.setRole(o.getRole());
+        r.setDomaine(o.getDomaine());
+        r.setTypeResp(o.getTypeResp());
         BDUtil.getEntityManager().merge(r);
         return true;
     }

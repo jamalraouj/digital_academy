@@ -28,6 +28,7 @@ public class DaoActivity implements IDao<Activity> {
     @Override
     public Activity findById(long id) {
         Activity a;
+
         a=BDUtil.getEntityManager().find(Activity.class,id);
         return a;
     }
