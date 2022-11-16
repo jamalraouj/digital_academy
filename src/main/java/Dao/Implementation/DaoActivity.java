@@ -2,6 +2,7 @@ package Dao.Implementation;
 
 import Dao.Interface.IDao;
 import Entity.Activity;
+import Entity.Participant;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
@@ -26,7 +27,9 @@ public class DaoActivity implements IDao<Activity> {
 
     @Override
     public Activity findById(long id) {
-        return null;
+        Activity a;
+        a=BDUtil.getEntityManager().find(Activity.class,id);
+        return a;
     }
 
     @Override
@@ -60,20 +63,27 @@ public class DaoActivity implements IDao<Activity> {
 
     @Override
     public boolean update(Activity o) {
-        try{
+//        try{
             BDUtil.openDB();
-            BDUtil.getEntityManager().persist(o);
-            BDUtil.openDB();
-            String sql = "DELETE FROM Activity WHERE id =:id";
-            Query query = BDUtil.getEntityManager().createQuery(sql, Activity.class);
-            query.setParameter("id",o.getId());
-            query.executeUpdate();
-
-            return true;
-        }
-        catch(Exception e){
-            e.getMessage();
-            return  false;
-        }
+            Activity act;
+            act = BDUtil.getEntityManager().find(Activity.class , o.getId());
+        System.out.println(act);
+            act.setTitle(o.getTitle());
+            act.setType(o.getType());
+            act.setDess(o.getDess());
+            act.setStatus(o.getStatus());
+            act.setResponsable(o.getResponsable());
+            act.setStartDate(o.getStartDate());
+            act.setEndDate(o.getEndDate());
+            System.out.println(act);
+            BDUtil.getEntityManager().merge(act);
+//BDUtil.closeDB();
+//            return true;
+//        }
+//        catch(Exception e){
+//            e.getMessage();
+//
+//        }
+        return  false;
     }
 }

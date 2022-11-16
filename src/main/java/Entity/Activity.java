@@ -80,6 +80,24 @@ public class Activity {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    public Responsable getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Responsable responsable) {
+        this.responsable = responsable;
+    }
+
+    public List<Participation> getParticipation() {
+        return participation;
+    }
+
+    public void setParticipation(List<Participation> participation) {
+        this.participation = participation;
+    }
+
+
     public Activity() {
 
     }

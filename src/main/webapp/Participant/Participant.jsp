@@ -93,6 +93,7 @@
                 <td>
                     <a href="<%=request. getContextPath()%>/UpdateParticipant?id=<%=part.getId()%>"  class="btn btn-primary">Modifier</a>
                 </td>
+
         </tr>
             <%}%>
 

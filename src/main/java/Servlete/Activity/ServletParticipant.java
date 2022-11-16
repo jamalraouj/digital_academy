@@ -1,4 +1,4 @@
-package Servlete;
+package Servlete.Activity;
 
 import Entity.Activity;
 import Entity.Participant;
