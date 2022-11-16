@@ -35,7 +35,7 @@
           <a class="nav-link" href="<%=request. getContextPath()%>/activity">Activités</a>
         </li>
         <li class="nav-item bg-gradient px-5 ms-2s">
-          <a class="nav-link" href="<%=request. getContextPath()%>/login">Logout</a>
+          <a class="nav-link" href="<%=request. getContextPath()%>/LogoutServlet">Logout</a>
         </li>
 
       </ul>
@@ -98,6 +98,7 @@
                 <td>
                     <a href="<%=request. getContextPath()%>/UpdateParticipant?id=<%=part.getId()%>"  class="btn btn-primary">Modifier</a>
                 </td>
+
         </tr>
             <%}%>
 

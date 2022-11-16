@@ -3,6 +3,7 @@ package Service.Implimentation;
 import Dao.Implementation.DaoActivity;
 import Dao.Interface.IDao;
 import Entity.Activity;
+import Entity.Participation;
 import Service.Interface.ServiceInterface;
 
 import java.util.List;
@@ -29,11 +30,13 @@ public class ServiceActivity implements ServiceInterface<Activity> {
 
     @Override
     public void update(Activity o) {
-
+        IDao daoActivity = new DaoActivity();
+        daoActivity.update(o);
     }
 
     @Override
     public Activity findById(long t) {
-        return null;
+        IDao daoActivity=new DaoActivity();
+        return (Activity) daoActivity.findById(t);
     }
 }

@@ -1,9 +1,7 @@
 package Servlete;
 
 import Dao.Implementation.DaoParticipationImp;
-import Entity.Activity;
-import Entity.Participant;
-import Entity.TypeResponsable;
+import Entity.*;
 import Service.Implimentation.ServiceActivity;
 import Service.Implimentation.ServiceParticipantImp;
 import Service.Interface.ServiceInterface;
@@ -18,8 +16,13 @@ import java.util.List;
 public class ServletParticipant extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         response.setContentType("text/html");
-
         if(request.getParameter("activity")==null || request.getParameter("activity").equals("All")){
             ServiceInterface serviceParticipant =new ServiceParticipantImp();
             List<Participant> participants =  serviceParticipant.findAll();

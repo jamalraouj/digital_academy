@@ -34,7 +34,15 @@ public class DaoParticipationImp implements IDao<Participation> {
 
     @Override
     public void insert(Participation o) {
-
+        System.out.println("PPPPPPPPPPPPPPPPPPPPP"+o);
+        try{
+            BDUtil.openDB();
+            BDUtil.getEntityManager().persist(o);
+            BDUtil.closeDB();
+        }
+        catch(Exception e){
+            e.getMessage();
+        }
     }
 
     @Override

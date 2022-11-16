@@ -1,9 +1,6 @@
 package Servlete;
 
-import Entity.Participant;
-import Entity.Responsable;
-import Entity.Role;
-import Entity.TypeResponsable;
+import Entity.*;
 import Service.Implimentation.ServiceParticipantImp;
 import Service.Implimentation.ServiceResponsableImp;
 import Service.Interface.ServiceInterface;
@@ -17,6 +14,12 @@ import java.io.IOException;
 public class UpdateResponsable extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession httpSession = request.getSession();
+        User user = (User) httpSession.getAttribute("loggedUser");
+        if(user == null || user.getRole() != Role.Administrator){
+            response.sendRedirect(request.getContextPath() + "/");
+            return;
+        }
         ServiceInterface serviceInterface =new ServiceResponsableImp();
         Responsable r= (Responsable) serviceInterface.findById(Long.parseLong(request.getParameter("id")));
         request.setAttribute("responsableToEdit",r);

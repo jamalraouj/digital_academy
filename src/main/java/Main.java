@@ -3,11 +3,20 @@ import Dao.Implementation.DaoParticipantImp;
 import Dao.Implementation.DaoParticipationImp;
 import Dao.Interface.IDao;
 import Entity.*;
+
 import Service.Implimentation.ServiceParticipantImp;
 import Service.Interface.ServiceInterface;
+
+import Service.Implimentation.ServiceActivity;
+import Service.Implimentation.ServiceParticipantImp;
+import Service.Implimentation.ServiceParticipationImp;
+import Service.Interface.ServiceInterface;
+
+
 import Util.BDUtil;
 
 import java.time.LocalDate;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -15,9 +24,19 @@ public class Main {
   IDao daoParticipantImp=new DaoParticipantImp();
         System.out.println(daoParticipantImp.findById(602));
 
+            User user = new User();
+            user.setName("jamal");
+            user.setPhone("6786876987");
+            user.setRole(Role.SuperAdmin);
+            user.setEmail("super@gmail.com");
+            user.setPassword("1234");
+            BDUtil.openDB();
+            BDUtil.getEntityManager().persist(user);
+            BDUtil.closeDB();
 
         ServiceInterface serviceParticipantImp=new ServiceParticipantImp();
         System.out.println(serviceParticipantImp.findById(602));
+
 
 //
 //        DaoActivity daoActivity = new DaoActivity();
@@ -43,6 +62,32 @@ public class Main {
 //        DaoParticipationImp daoParticipationImp=new DaoParticipationImp();
 //        System.out.println("=========------!!!!!========");
 //        System.out.println(daoParticipationImp.findParticipantActivity(4));
+
+System.exit(0);
+        DaoActivity daoActivity = new DaoActivity();
+
+        DaoParticipantImp daoParticipantImp1 = new DaoParticipantImp();
+        Participant p2=daoParticipantImp1.findById(602);
+        Participant p3=daoParticipantImp1.findById(302);
+
+        System.out.println(p2.toString());
+        Activity a2 = daoActivity.findById(4);
+        System.out.println(a2.toString());
+//        daoActivity.insert(a1);
+        System.out.println(daoActivity.findAll().toString());
+        Participation part=new Participation();
+        part.setActivity(a2);
+        part.setParticipant(p2);
+        BDUtil.openDB();
+        BDUtil.getEntityManager().persist(part);
+        BDUtil.closeDB();
+        System.out.println(part.toString());
+        System.out.println(p2);
+
+        DaoParticipationImp daoParticipationImp=new DaoParticipationImp();
+        System.out.println("=========------!!!!!========");
+        System.out.println(daoParticipationImp.findParticipantActivity(4));
+
 
 
 

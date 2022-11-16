@@ -1,22 +1,20 @@
 package Servlete.Activity;
 
-import Dao.Implementation.DaoResponsableImp;
 import Entity.*;
 import Service.Implimentation.ServiceActivity;
+import Service.Implimentation.ServiceParticipantImp;
 import Service.Implimentation.ServiceResponsableImp;
 import Service.Interface.ServiceInterface;
-import Service.Interface.ServiceResponsable;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.List;
 
-@WebServlet(name = "ServletActivity", value = "/activity/add_activity")
-public class AddActivity extends HttpServlet {
+@WebServlet(name = "ActivityUpdate", value = "/Activity/ActivityUpdate")
+public class ActivityUpdate extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession httpSession = request.getSession();
@@ -26,18 +24,14 @@ public class AddActivity extends HttpServlet {
             return;
         }
         response.setContentType("text/html");
-//        getServletConfig().getServletContext()
-//                .getRequestDispatcher("/activity/addActivity.jsp").forward(request,response);
-//        ServiceActivity serviceActivity = new ServiceActivity();
+        ServiceInterface serviceActivity =new ServiceActivity();
+        Activity activity = (Activity) serviceActivity.findById(Long.parseLong(request.getParameter("id")));
+        System.out.println(activity.getStatus());
         ServiceInterface servicePersonImp = new ServiceResponsableImp();
         List<Responsable> responsables =  servicePersonImp.findAll();
-//        responsables.forEach(responsable -> {
-//            System.out.println(responsable.getName());
-//        });
-
-
+        request.setAttribute("activityToEdit",activity);
         request.setAttribute("responsables",responsables);
-        request.getRequestDispatcher("/activity/addActivity.jsp").forward(request,response);
+        request.getRequestDispatcher("/activity/UpdateActivity.jsp").forward(request,response);
 
     }
 
@@ -45,6 +39,7 @@ public class AddActivity extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 
+         int id = Integer.parseInt(request.getParameter("idActivi"));
         String title =request.getParameter("title").trim();
         String description =request.getParameter("description").trim();
         Type type = Type.valueOf(request.getParameter("type").trim());
@@ -52,20 +47,14 @@ public class AddActivity extends HttpServlet {
         Status status = Status.valueOf(request.getParameter("status"));
         LocalDate startDate = LocalDate.parse(request.getParameter("startDate").trim());
         LocalDate endDate = LocalDate.parse(request.getParameter("endDate").trim());
+        ServiceInterface<Responsable> servicePersonImp = new ServiceResponsableImp();
+        Responsable res = (Responsable) servicePersonImp.findById(responsable);
+
+        Activity activity = new Activity(id,title,description,type ,startDate,endDate,status,res);
+
         ServiceInterface<Activity> serviceActivity = new ServiceActivity();
-        System.out.println(responsable);
-
-        ServiceResponsableImp responsableImp = new ServiceResponsableImp();
-        Responsable res = responsableImp.findById( responsable);
-        System.out.println(res.getName()+"=================");
-//        responsableImp
-        Activity activity = new Activity(title,description,type,startDate,endDate,status,res);
-        System.out.println(activity.toString());
-        serviceActivity.insert(activity);
-
-//        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
-//        reqd.forward(request, response);
-        response.sendRedirect(request.getContextPath() + "/activity/add_activity");
+        serviceActivity.update(activity);
+        response.sendRedirect(request.getContextPath() + "/activity");
 
     }
 }
