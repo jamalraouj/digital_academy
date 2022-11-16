@@ -2,6 +2,7 @@ package Dao.Implementation;
 
 import Dao.Interface.IDao;
 import Entity.Activity;
+import Entity.Participant;
 import Util.BDUtil;
 import jakarta.persistence.Query;
 
@@ -26,7 +27,9 @@ public class DaoActivity implements IDao<Activity> {
 
     @Override
     public Activity findById(long id) {
-        return null;
+        Activity a=new Activity();
+        a=BDUtil.getEntityManager().find(Activity.class,id);
+        return a;
     }
 
     @Override

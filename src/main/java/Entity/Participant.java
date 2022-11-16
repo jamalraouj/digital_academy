@@ -12,6 +12,7 @@ public class Participant extends Person {
     private String domaine;
     private String structure;
 
+
     public String getDomaine() {
         return domaine;
     }
@@ -28,8 +29,6 @@ public class Participant extends Person {
         this.structure = structure;
     }
 
-    @OneToMany(mappedBy = "participant")
-    private List<Participation> participation=new ArrayList<>();
     public Participant() {
 
     }
