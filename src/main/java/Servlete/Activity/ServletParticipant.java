@@ -1,4 +1,4 @@
-package Servlete;
+package Servlete.Activity;
 
 import Dao.Implementation.DaoParticipationImp;
 import Entity.Activity;
