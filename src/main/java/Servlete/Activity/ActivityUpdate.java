@@ -20,7 +20,7 @@ public class ActivityUpdate extends HttpServlet {
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         response.setContentType("text/html");

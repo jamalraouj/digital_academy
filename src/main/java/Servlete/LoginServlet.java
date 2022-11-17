@@ -16,27 +16,26 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        RequestDispatcher rd = getServletConfig().getServletContext().getRequestDispatcher("/jsp/myfile.jsp").forward(request,response);
+
+        response.setContentType("text/html");
         HttpSession httpSession = request.getSession();
         if(httpSession.getAttribute("loggedUser") != null){
-            System.out.println("EEEE");
             response.sendRedirect(request.getContextPath() + "/");
             return;
         }
-        response.setContentType("text/html");
         getServletConfig().getServletContext()
                 .getRequestDispatcher("/login.jsp").forward(request,response);
-        PrintWriter out = response.getWriter();
+
+//        PrintWriter out = response.getWriter();
 //        System.out.println(httpSession.getAttribute("loggedUser").toString());
 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>true used</h1>");
-
-
+        //PrintWriter out = response.getWriter();
+        //out.println("<html><body>");
+        //out.println("<h1>true used</h1>");
 
         String email=request.getParameter("userEmail").trim();
         String password=request.getParameter("userPass").trim();
@@ -55,7 +54,7 @@ public class LoginServlet extends HttpServlet {
             e.getMessage();
         }
 
-        out.println("</body></html>");
+        //out.println("</body></html>");
 
     }
 }

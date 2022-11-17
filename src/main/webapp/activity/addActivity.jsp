@@ -22,7 +22,7 @@
 
 </head>
 <body>
-<form action="<%=request. getContextPath()%>/add_activity" method="post">
+<form action="<%=request. getContextPath()%>/activity/add_activity" method="post">
     <div class="form-group">
         <label >Title</label>
         <input type="text" name="title"  class="form-control" >

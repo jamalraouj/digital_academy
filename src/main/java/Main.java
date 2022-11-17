@@ -24,18 +24,27 @@ public class Main {
   IDao daoParticipantImp=new DaoParticipantImp();
         System.out.println(daoParticipantImp.findById(602));
 
-            User user = new User();
-            user.setName("jamal");
-            user.setPhone("6786876987");
-            user.setRole(Role.SuperAdmin);
-            user.setEmail("super@gmail.com");
-            user.setPassword("1234");
-            BDUtil.openDB();
-            BDUtil.getEntityManager().persist(user);
-            BDUtil.closeDB();
+//            User user = new User();
+//            user.setName("jamal");
+//            user.setPhone("6786876987");
+//            user.setRole(Role.SuperAdmin);
+//            user.setEmail("super@gmail.com");
+//            user.setPassword("1234");
+//            BDUtil.openDB();
+//            BDUtil.getEntityManager().persist(user);
+//            BDUtil.closeDB();
 
-        ServiceInterface serviceParticipantImp=new ServiceParticipantImp();
-        System.out.println(serviceParticipantImp.findById(602));
+        User user1 = new User();
+        user1.setName("saida");
+        user1.setPhone("6786876987");
+        user1.setRole(Role.Administrator);
+        user1.setEmail("saida@gmail.com");
+        user1.setPassword("1234");
+        BDUtil.openDB();
+        BDUtil.getEntityManager().persist(user1);
+        BDUtil.closeDB();
+
+
 
 
 //
@@ -63,31 +72,31 @@ public class Main {
 //        System.out.println("=========------!!!!!========");
 //        System.out.println(daoParticipationImp.findParticipantActivity(4));
 
-System.exit(0);
-        DaoActivity daoActivity = new DaoActivity();
-
-        DaoParticipantImp daoParticipantImp1 = new DaoParticipantImp();
-        Participant p2=daoParticipantImp1.findById(602);
-        Participant p3=daoParticipantImp1.findById(302);
-
-        System.out.println(p2.toString());
-        Activity a2 = daoActivity.findById(4);
-        System.out.println(a2.toString());
-//        daoActivity.insert(a1);
-        System.out.println(daoActivity.findAll().toString());
-        Participation part=new Participation();
-        part.setActivity(a2);
-        part.setParticipant(p2);
-        BDUtil.openDB();
-        BDUtil.getEntityManager().persist(part);
-        BDUtil.closeDB();
-        System.out.println(part.toString());
-        System.out.println(p2);
-
-        DaoParticipationImp daoParticipationImp=new DaoParticipationImp();
-        System.out.println("=========------!!!!!========");
-        System.out.println(daoParticipationImp.findParticipantActivity(4));
-
+//System.exit(0);
+//        DaoActivity daoActivity = new DaoActivity();
+//
+//        DaoParticipantImp daoParticipantImp1 = new DaoParticipantImp();
+//        Participant p2=daoParticipantImp1.findById(602);
+//        Participant p3=daoParticipantImp1.findById(302);
+//
+//        System.out.println(p2.toString());
+//        Activity a2 = daoActivity.findById(4);
+//        System.out.println(a2.toString());
+////        daoActivity.insert(a1);
+//        System.out.println(daoActivity.findAll().toString());
+//        Participation part=new Participation();
+//        part.setActivity(a2);
+//        part.setParticipant(p2);
+//        BDUtil.openDB();
+//        BDUtil.getEntityManager().persist(part);
+//        BDUtil.closeDB();
+//        System.out.println(part.toString());
+//        System.out.println(p2);
+//
+//        DaoParticipationImp daoParticipationImp=new DaoParticipationImp();
+//        System.out.println("=========------!!!!!========");
+//        System.out.println(daoParticipationImp.findParticipantActivity(4));
+//
 
 
 
