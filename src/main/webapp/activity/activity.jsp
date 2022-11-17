@@ -45,8 +45,8 @@
 
 <div class="d-flex justify-content-center">
     <div class="d-flex justify-content-between py-5 w-75">
-        <h1 class="text-primary ">Les activites :</h1>
-        <a href="<%=request. getContextPath()%>/activity/add_activity"  class="btn btn-primary">Ajouter un activity</a>
+        <h1 class="text-primary ">Les activités :</h1>
+        <a href="<%=request. getContextPath()%>/activity/add_activity"  class="btn btn-primary">Ajouter une activité</a>
     </div>
 </div>
 
@@ -56,11 +56,11 @@
     <table class="table w-75">
         <thead class="table-light">
         <th>Id</th>
-        <th>Title</th>
+        <th>Titre</th>
         <th>Type</th>
         <th>Status</th>
-        <th>Start date</th>
-        <th>End date</th>
+        <th>Date de debut</th>
+        <th>DAte de fin</th>
         </thead>
         <tbody>
 
@@ -77,7 +77,7 @@
                 <a href="<%=request. getContextPath()%>/Activity/ActivityUpdate?id=<%=act.getId()%>"  class="btn btn-primary">Modifier</a>
             </td>
             <td>
-                <a href="<%=request. getContextPath()%>/Activity/participation?id=<%=act.getId()%>"  class="btn btn-primary">Assignee des participation </a>
+                <a href="<%=request. getContextPath()%>/Activity/participation?id=<%=act.getId()%>"  class="btn btn-primary">Assigner des participations </a>
             </td>
         </tr>
         <%}%>

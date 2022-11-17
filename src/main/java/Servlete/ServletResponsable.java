@@ -19,13 +19,14 @@ import java.util.List;
 public class ServletResponsable extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html");
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        response.setContentType("text/html");
+
         ServiceInterface serviceResponsable =new ServiceResponsableImp();
         List<Responsable> responsables =  serviceResponsable.findAll();
         responsables.forEach(responsable -> {

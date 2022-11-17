@@ -22,7 +22,7 @@ public class AddActivity extends HttpServlet {
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         response.setContentType("text/html");
@@ -65,7 +65,7 @@ public class AddActivity extends HttpServlet {
 
 //        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
 //        reqd.forward(request, response);
-        response.sendRedirect(request.getContextPath() + "/activity/add_activity");
+        response.sendRedirect(request.getContextPath() + "/activity");
 
     }
 }

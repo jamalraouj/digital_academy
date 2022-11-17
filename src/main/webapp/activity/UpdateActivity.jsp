@@ -64,7 +64,7 @@
             </div>
             <div class="form-group mt-3">
                 <select name="responsable">
-                    <option value="<%= activity.getResponsable().getId() %>"><%= activity.getResponsable().getName() %></option>
+<%--                    <option value="<%= activity.getResponsable().getId() %>"><%= activity.getResponsable().getName() %></option>--%>
                     <% for( Responsable res :  responsables) { %>
                     <option value="<%= res.getId() %>"><%= res.getName() %></option>
                     <%}%>
