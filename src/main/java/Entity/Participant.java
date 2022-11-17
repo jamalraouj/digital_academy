@@ -12,7 +12,6 @@ public class Participant extends Person {
     private String domaine;
     private String structure;
 
-
     public String getDomaine() {
         return domaine;
     }

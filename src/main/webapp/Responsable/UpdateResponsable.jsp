@@ -10,6 +10,8 @@
 <html>
 <head>
     <title>Modifier Responsable</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
 </head>
 <body>
 <%-- Start NavBar--%>
@@ -40,41 +42,41 @@
     </div>
 </nav>
 <%-- End NavBar --%>
+
 <% Responsable res= ((Responsable) request.getAttribute("responsableToEdit"));%>
 
-<div class="d-flex flex-column flex-md-row">
-    <div class="w-100 w-md-50">
-        <img src = "src/main/assets/images/update.svg" alt="update"/>
-    </div>
-    <div class="w-100 w-md-50">
-        <h1>Update Responsable</h1>
-        <form action="" method="post">
-            <div class="form-group mt-5">
-                <label >Name</label>
-                <input type="text" name="name"  class="form-control" value="<%=res.getName()%>" >
-            </div>
-            <div class="form-group mt-3">
-                <label >Phone</label>
-                <input type="text" name="phone"  class="form-control" value="<%=res.getPhone()%>">
-            </div>
-            <div class="form-group">
-                <label >Type de responsabilité</label>
-                <select name="typeResp">
-<%--                    <% if(res.getTypeResp()== TypeResponsable.Formateur) { %>--%>
-                    <option >${TypeResponsable.Formateur}</option>
-                    <option >${TypeResponsable.Intervenant}</option
-                </select>
-            </div>
-            <div class="form-group mt-3">
-                <label >Domaine</label>
-                <input type="text" name="domaine"  class="form-control" value="<%=res.getDomaine()%>">
+<div class="d-flex flex-column">
+    <div class="w-100 d-flex justify-content-center">
+        <div class="w-50 mt-5">
+            <h1>Modifier un Responsable</h1>
+            <form action="" method="post">
+                <div class="form-group mt-5">
+                    <label >Nom complet</label>
+                    <input type="text" name="name"  class="form-control" value="<%=res.getName()%>" >
+                </div>
+                <div class="form-group mt-3">
+                    <label >Téléphone</label>
+                    <input type="text" name="phone"  class="form-control" value="<%=res.getPhone()%>">
+                </div>
+                <div class="form-group mt-3 d-flex flex-column">
+                    <label >Type de responsabilité</label>
+                    <select name="typeResp" class="form-control">
+    <%--                    <% if(res.getTypeResp()== TypeResponsable.Formateur) { %>--%>
+                        <option >${TypeResponsable.Formateur}</option>
+                        <option >${TypeResponsable.Intervenant}</option
+                    </select>
+                </div>
+                <input type="hidden">
+                <div class="form-group mt-3">
+                    <label >Domaine</label>
+                    <input type="text" name="domaine"  class="form-control" value="<%=res.getDomaine()%>">
+                </div>
 
-            </div>
-
-            <div class="w-100 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mt-1 w-50 w-md-100">Update</button>
-            </div>
-        </form>
+                <div class="w-100 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-3 w-50 w-md-100">Update</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>
