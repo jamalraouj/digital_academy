@@ -41,12 +41,13 @@
     </div>
 </nav>
 <%-- End NavBar --%>
+
 <% Participant p= ((Participant) request.getAttribute("participantToEdit"));%>
 
 <div class="d-flex flex-column flex-md-row">
     <div class="w-100 d-flex justify-content-center">
       <div class="w-50 mt-5">
-        <h1>Update participant</h1>
+        <h1>Modifier un participant</h1>
         <form action="" method="post">
             <div class="form-group mt-5">
                 <label >Name</label>
@@ -66,7 +67,7 @@
                 <input type="text" name="structure"  class="form-control" value="<%=p.getStructure()%>">
             </div>
             <div class="w-100 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mt-1 w-50 w-md-100">Update</button>
+                <button type="submit" class="btn btn-primary mt-3 w-50 w-md-100">Update</button>
             </div>
         </form>
     </div>

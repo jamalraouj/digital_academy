@@ -19,6 +19,7 @@ public class ServletParticipant extends HttpServlet {
         response.setContentType("text/html");
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
+
         if(user == null || user.getRole() != Role.Administrator){
             response.sendRedirect(request.getContextPath() + "/login");
             return;
@@ -39,6 +40,7 @@ public class ServletParticipant extends HttpServlet {
         }
 
         ServiceInterface<Activity> serviceActivity = new ServiceActivity();
+
         List<Activity> activities =  serviceActivity.findAll();
         System.out.println(activities.toString());
         request.setAttribute("activities",activities);
