@@ -33,7 +33,7 @@ public class DaoParticipationImp implements IDao<Participation> {
     }
 
     @Override
-    public void insert(Participation o) {
+    public Participation insert(Participation o) {
         System.out.println("PPPPPPPPPPPPPPPPPPPPP"+o);
         try{
             BDUtil.openDB();
@@ -43,6 +43,7 @@ public class DaoParticipationImp implements IDao<Participation> {
         catch(Exception e){
             e.getMessage();
         }
+        return o;
     }
 
     @Override

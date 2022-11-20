@@ -50,15 +50,18 @@ public class DaoActivity implements IDao<Activity> {
     }
 
     @Override
-    public void insert(Activity o) {
+    public Activity insert(Activity o) {
+
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
             BDUtil.closeDB();
+
         }
         catch(Exception e){
             e.getMessage();
         }
+        return o;
 
     }
 

@@ -10,9 +10,10 @@ import java.util.List;
 
 public class ServiceParticipationImp implements ServiceInterface<Participation> {
     @Override
-    public void insert(Participation o) {
+    public Participation insert(Participation o) {
         IDao participationImp = new DaoParticipationImp();
         participationImp.insert(o);
+        return o;
     }
 
     @Override
