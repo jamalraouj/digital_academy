@@ -17,7 +17,7 @@ public class AddResponsable extends HttpServlet {
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         request.getRequestDispatcher("/Responsable/AddResponsable.jsp").forward(request,response);
@@ -34,8 +34,6 @@ public class AddResponsable extends HttpServlet {
         Responsable r=new Responsable(name,phone,role,typeResp,domaine);
         serviceResponsable.insert(r);
 
-//        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
-//        reqd.forward(request, response);
         response.sendRedirect(request.getContextPath() + "/Responsable");
     }
 }

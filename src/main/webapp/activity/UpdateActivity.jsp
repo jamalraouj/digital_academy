@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<%-- Start NavBar --%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Pole Digital Academy</a>
@@ -44,64 +45,64 @@
     </div>
 </nav>
 <%-- End NavBar --%>
+
 <% Activity activity= ((Activity) request.getAttribute("activityToEdit"));%>
 <% List<Responsable> responsables= ((List<Responsable>) request.getAttribute("responsables"));%>
 
 <div class="d-flex flex-column flex-md-row">
-    <div class="w-100 w-md-50">
-        <img src = "src/main/assets/images/update.svg" alt="update"/>
-    </div>
-    <div class="w-100 w-md-50">
-        <h1>Update participant</h1>
-        <form action="<%=request. getContextPath() %>/Activity/ActivityUpdate" method="post">
-            <div class="form-group mt-5">
-                <label >Title</label>
-                <input type="text" name="title"  class="form-control" value="<%= activity.getTitle()%>" >
-            </div>
-            <div class="form-group mt-3">
-                <label >Description</label>
-                <input type="text" name="description"  class="form-control" value="<%=activity.getDess()%>">
-            </div>
-            <div class="form-group mt-3">
-                <select name="responsable">
-                    <option value="<%= activity.getResponsable().getId() %>"><%= activity.getResponsable().getName() %></option>
-                    <% for( Responsable res :  responsables) { %>
-                    <option value="<%= res.getId() %>"><%= res.getName() %></option>
-                    <%}%>
-                </select>
+    <div class="w-100 d-flex  justify-content-center">
+        <div class="w-50 mt-5">
+            <h1>Modifier une activité</h1>
+            <form action="<%=request. getContextPath() %>/Activity/ActivityUpdate" method="post" >
+                <div class="form-group mt-5">
+                    <label >Title</label>
+                    <input type="text" name="title"  class="form-control" value="<%= activity.getTitle()%>" >
+                </div>
+                <div class="form-group mt-3">
+                    <label >Description</label>
+                    <input type="text" name="description"  class="form-control" value="<%=activity.getDess()%>">
+                </div>
+                <div class="form-group mt-3">
+                    <label >Les responsables</label>
+                    <select name="responsable" class="form-control">
+                        <% for( Responsable res :  responsables) { %>
+                        <option value="<%= res.getId() %>"><%= res.getName() %></option>
+                        <%}%>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label >Type d'activité</label>
+                    <select name="type" class="form-control">
+                        <option><%= Type.valueOf(activity.getType().toString()) %></option>
+                        <option >${Type.Formation}</option>
+                        <option >${Type.Evenement}</option>
 
-            </div>
-            <div class="form-group mt-3">
-                <select name="type">
-                    <option><%= Type.valueOf(activity.getType().toString()) %></option>
-                    <option >${Type.Formation}</option>
-                    <option >${Type.Evenement}</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label >Status d'activité</label>
+                    <select name="status" class="form-control">
+                        <option><%= Status.valueOf(activity.getStatus().toString())%></option>
+                        <option><%=Status.enCours%></option>
+                        <option><%=Status.tetmine%></option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label >Start date</label>
+                    <input type="date" name="startDate"  class="form-control" value="<%=activity.getStartDate()%>">
+                </div>
 
-                </select>
-            </div>
-            <div class="form-group mt-3">
-                <select name="status">
-                    <option><%= Status.valueOf(activity.getStatus().toString())%></option>
-                    <option><%=Status.enCours%></option>
-                    <option><%=Status.tetmine%></option>
+                <div class="form-group mt-3">
+                    <label >End date</label>
+                    <input type="date" name="endDate"  class="form-control" value="<%=activity.getEndDate()%>">
+                </div>
+                <input value="<%=activity.getId()%>" type="hidden" name="idActivi">
 
-                </select>
-
-            </div>
-            <div class="form-group mt-3">
-                <label >Start date</label>
-                <input type="date" name="startDate"  class="form-control" value="<%=activity.getStartDate()%>">
-            </div>
-
-            <div class="form-group mt-3">
-                <label >End date</label>
-                <input type="date" name="endDate"  class="form-control" value="<%=activity.getEndDate()%>">
-            </div>
-<input value="<%=activity.getId()%>" type="hidden" name="idActivi">
-            <div class="w-100 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary mt-1 w-50 w-md-100">Update</button>
-            </div>
-        </form>
+                <div class="w-100 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-1 w-50 w-md-100">Update</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 </body>

@@ -17,7 +17,7 @@ public class UpdateResponsable extends HttpServlet {
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         ServiceInterface serviceInterface =new ServiceResponsableImp();
@@ -42,8 +42,6 @@ public class UpdateResponsable extends HttpServlet {
         Responsable r=new Responsable(responsable.getId(),name,phone,role,domaine,typeResp);
         serviceResponsable.update(r);
 
-//        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
-//        reqd.forward(request, response);
         response.sendRedirect(request.getContextPath() + "/Responsable");
     }
 }

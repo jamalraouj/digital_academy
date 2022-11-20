@@ -9,29 +9,67 @@
 <html>
 <head>
     <title>Modifier un participant</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
 <body>
-<h1>Update participant</h1>
-<form action="<%=request. getContextPath()%>/AddParticipant" method="post">
-    <div class="form-group">
-        <label >Name</label>
-        <input type="text" name="name"  class="form-control" >
-    </div>
-    <div class="form-group">
-        <label >Phone</label>
-        <input type="text" name="phone"  class="form-control" >
-    </div>
-    <div class="form-group">
-        <label >Domaine</label>
-        <input type="text" name="domaine"  class="form-control" >
 
-    </div>
-    <div class="form-group">
-        <label >Structure</label>
-        <input type="text" name="structure"  class="form-control" >
-    </div>
+<%-- Start NavBar--%>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Pole Digital Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav w-100 d-flex justify-content-end">
 
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-</form>
+                <li class="nav-item px-5 mx-2">
+                    <a class="nav-link active" aria-current="page" href="<%=request. getContextPath()%>/Participant">Participants</a>
+                </li>
+                <li class="nav-item px-5 mx-2">
+                    <a class="nav-link" href="<%=request. getContextPath()%>/Responsable">Responsables</a>
+                </li>
+                <li class="nav-item px-5 mx-2 ">
+                    <a class="nav-link" href="<%=request. getContextPath()%>/activity">Activités</a>
+                </li>
+                <li class="nav-item bg-gradient px-5 ms-2s">
+                    <a class="nav-link" href="<%=request. getContextPath()%>/LogoutServlet">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<%-- End NavBar --%>
+
+<div class="d-flex flex-column flex-md-row">
+    <div class="w-100 d-flex justify-content-center">
+        <div class="w-50 mt-5">
+            <h1>Ajouter un participant</h1>
+            <form action="<%=request. getContextPath()%>/AddParticipant" method="post">
+                <div class="form-group mt-3">
+                    <label >Name</label>
+                    <input type="text" name="name"  class="form-control" >
+                </div>
+                <div class="form-group mt-3">
+                    <label >Phone</label>
+                    <input type="text" name="phone"  class="form-control" >
+                </div>
+                <div class="form-group mt-3">
+                    <label >Domaine</label>
+                    <input type="text" name="domaine"  class="form-control" >
+
+                </div>
+                <div class="form-group mt-3">
+                    <label >Structure</label>
+                    <input type="text" name="structure"  class="form-control" >
+                </div>
+                <div class="w-100 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-3 w-50 w-md-100">Ajouter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

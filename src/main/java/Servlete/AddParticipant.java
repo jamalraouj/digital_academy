@@ -19,10 +19,9 @@ public class AddParticipant extends HttpServlet {
         HttpSession httpSession = request.getSession();
         User user = (User) httpSession.getAttribute("loggedUser");
         if(user == null || user.getRole() != Role.Administrator){
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
-        System.out.println("ajouter ====");
         request.getRequestDispatcher("/Participant/AddParticipant.jsp").forward(request,response);
     }
 
@@ -36,12 +35,8 @@ public class AddParticipant extends HttpServlet {
         ServiceInterface<Participant> serviceParticipant = new ServiceParticipantImp();
 
         Participant p=new Participant(name,phone,role,domaine,structure);
-        System.out.println("=== add participant ===");
-        System.out.println(p.toString());
         serviceParticipant.insert(p);
 
-//        RequestDispatcher reqd = request.getRequestDispatcher("add_activity");
-//        reqd.forward(request, response);
         response.sendRedirect(request.getContextPath() + "/Participant");
     }
 }

@@ -60,7 +60,7 @@
                                 <option  value="<%= act.getId() %>"><%= act.getTitle() %></option>
                                 <%}%>
                             </select>
-                            <button type="submit" class="btn btn-primary h-75 mb-0">Done</button>
+                            <button type="submit" class="btn btn-primary h-75 mb-0">Filtrer</button>
                         </div>
 
                 </form>
