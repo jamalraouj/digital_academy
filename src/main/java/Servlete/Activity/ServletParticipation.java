@@ -51,9 +51,7 @@ public class ServletParticipation extends HttpServlet {
             Participation participation = new Participation(participant,activity);
             ServiceInterface servletParticipation = new ServiceParticipationImp();
             servletParticipation.insert(participation);
-            response.sendRedirect(request.getContextPath() + "/activity");
-
-
         }
+        response.sendRedirect(request.getContextPath() + "/activity");
     }
 }

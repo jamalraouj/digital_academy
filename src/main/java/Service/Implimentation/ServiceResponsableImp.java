@@ -16,9 +16,10 @@ public class ServiceResponsableImp implements ServiceInterface<Responsable> {
 
 
     @Override
-    public void insert(Responsable o) {
+    public Responsable insert(Responsable o) {
         DaoResponsableImp daoResponsableImp = new DaoResponsableImp();
         daoResponsableImp.insert(o);
+        return o;
     }
 
     @Override

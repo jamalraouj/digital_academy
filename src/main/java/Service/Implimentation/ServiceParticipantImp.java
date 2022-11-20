@@ -11,9 +11,10 @@ import java.util.List;
 public class ServiceParticipantImp implements ServiceInterface<Participant> {
 
     @Override
-    public void insert(Participant o) {
+    public Participant insert(Participant o) {
         IDao daoParticipantImp=new DaoParticipantImp();
         daoParticipantImp.insert(o);
+        return o;
     }
 
     @Override

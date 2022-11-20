@@ -34,7 +34,7 @@ public class DaoParticipantImp implements IDao<Participant> {
     }
 
     @Override
-    public void insert(Participant o) {
+    public Participant insert(Participant o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
@@ -42,6 +42,7 @@ public class DaoParticipantImp implements IDao<Participant> {
         catch(Exception e){
             e.getMessage();
         }
+        return o;
     }
 
     @Override

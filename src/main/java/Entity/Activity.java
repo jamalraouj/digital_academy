@@ -8,9 +8,9 @@ import java.util.List;
 
 @Entity
 public class Activity {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private String dess;
     @Enumerated(EnumType.STRING)
@@ -25,7 +25,7 @@ public class Activity {
     @OneToMany(mappedBy = "activity")
     private List<Participation> participation=new ArrayList<>();
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -101,7 +101,7 @@ public class Activity {
     public Activity() {
 
     }
-    public Activity(int id,String title, String dess, Type type, LocalDate startDate, LocalDate endDate, Status status, Responsable responsable) {
+    public Activity(long id,String title, String dess, Type type, LocalDate startDate, LocalDate endDate, Status status, Responsable responsable) {
         this.id=id;
         this.title = title;
         this.dess = dess;

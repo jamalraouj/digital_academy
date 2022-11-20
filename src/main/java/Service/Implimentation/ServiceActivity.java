@@ -10,9 +10,10 @@ import java.util.List;
 
 public class ServiceActivity implements ServiceInterface<Activity> {
     @Override
-    public void insert(Activity o) {
+    public Activity insert(Activity o) {
         IDao daoActivity = new DaoActivity();
         daoActivity.insert(o);
+        return o;
     }
 
     @Override

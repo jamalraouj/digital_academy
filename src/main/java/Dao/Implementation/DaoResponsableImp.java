@@ -36,7 +36,7 @@ public class DaoResponsableImp implements  IDao<Responsable>
     }
 
     @Override
-    public void insert(Responsable o) {
+    public Responsable insert(Responsable o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
@@ -44,6 +44,7 @@ public class DaoResponsableImp implements  IDao<Responsable>
         catch(Exception e){
             e.getMessage();
         }
+        return o;
     }
 
     @Override

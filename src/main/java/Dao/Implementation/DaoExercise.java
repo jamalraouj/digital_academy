@@ -47,7 +47,7 @@ public class DaoExercise implements IDao<Exercise> {
     }
 
     @Override
-    public void insert(Exercise o) {
+    public Exercise insert(Exercise o) {
         try{
             BDUtil.openDB();
             BDUtil.getEntityManager().persist(o);
@@ -56,6 +56,7 @@ public class DaoExercise implements IDao<Exercise> {
         catch(Exception e){
             e.getMessage();
         }
+        return o;
 
     }
 
